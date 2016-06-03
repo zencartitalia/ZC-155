@@ -37,7 +37,7 @@ define('OTHER_BOX_WRITE_REVIEW_ALT', 'Scrivi una recensione su questo articolo.'
 define('OTHER_CALL_FOR_PRICE_ALT', 'Chiama per conoscere il prezzo.');
 define('OTHER_DOWN_FOR_MAINTENANCE_ALT', 'Il sito &egrave; in manutenzione. Torna a trovarci pi&ugrave; tardi.');
 define('OTHER_TRANPARENT_ALT', '');
-define('OTHER_IMAGE_CUSTOMERS_AUTHORIZATION_ALT', 'AUTORIZZAZIONE UTENTE IN APPROVAZIONE...');
+define('OTHER_IMAGE_CUSTOMERS_AUTHORIZATION_ALT', 'AUTORIZZAZIONE UTENTE IN ATTESA...');
 define('OTHER_REVIEWS_RATING_STARS_FIVE_ALT', 'Cinque Stelle');
 define('OTHER_REVIEWS_RATING_STARS_FOUR_ALT', 'Quattro Stelle');
 define('OTHER_REVIEWS_RATING_STARS_THREE_ALT', 'Tre Stelle');

@@ -1,28 +1,13 @@
 <?php
-//
-// +----------------------------------------------------------------------+
-// |zen-cart Open Source E-commerce                                       |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 2003 The zen-cart developers                           |
-// |                                                                      |   
-// | http://www.zen-cart.com/index.php                                    |   
-// |                                                                      |   
-// | Portions Copyright (c) 2003 osCommerce                               |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 2.0 of the GPL license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available through the world-wide-web at the following url:           |
-// | http://www.zen-cart.com/license/2_0.txt.                             |
-// | If you did not receive a copy of the zen-cart license and are unable |
-// | to obtain it through the world-wide-web, please send a note to       |
-// | license@zen-cart.com so we can mail you a copy immediately.          |
-// +----------------------------------------------------------------------+
-// $Id: flat.php 1969 2005-09-13 06:57:21Z drbyte $
-//
+/**
+ * @package flat
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
+ * @copyright Portions Copyright 2003 osCommerce
+ * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
+ * @version $Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
+ */
 
 define('MODULE_SHIPPING_CELERE3_TEXT_TITLE', 'Pacco Celere 3 - Poste Italiane');
-define('MODULE_SHIPPING_CELERE3_TEXT_DESCRIPTION', 'Consegna entro 3 giorni lavorativi, 
-oltre quello di accettazione, sabato e festivi esclusi, peso max 30 Kg. <br />
-Sito Poste Italiane per <a href="http://www.poste.it/postali/paccocelere3/index.shtml" target="_blank">info e dettagli</a>.');
-define('MODULE_SHIPPING_CELERE3_TEXT_WAY', 'Consegna entro 3 giorni lavorativi, oltre quello di accettazione, sabato e festivi esclusi, peso max 30 Kg.');
-?>
+define('MODULE_SHIPPING_CELERE3_TEXT_DESCRIPTION', 'Consegna in 4 giorni lavorativi successivi a quello di accettazione.<br />
+Sito Poste Italiane per <a href="http://www.poste.it/postali/italia/paccocelere3.shtml" target="_blank">info e dettagli</a>.');
+define('MODULE_SHIPPING_CELERE3_TEXT_WAY', 'In 4 giorni lavorativi successivi a quello di accettazione.');
