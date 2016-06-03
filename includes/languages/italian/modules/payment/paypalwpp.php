@@ -1,10 +1,10 @@
 <?php
 /**
  * @package languageDefines
- * @copyright Copyright 2003-2012 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: paypalwpp.php 28-09-2012 Modified in v1.5.1 $
+ * @version $Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
  */
 
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_ADMIN_TITLE_EC', 'PayPal Express Checkout');
@@ -46,6 +46,7 @@
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_ADDR_ERROR', 'L\'indirizzo immesso sembra errato o comunque non riusciamo ad avere un riscontro. Per cortesia, scegli o aggiungi un indirizzo differente e prova nuovamente.');
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_CONFIRMEDADDR_ERROR', 'L\'indirizzo selezionato su PayPal non risulta un indirizzo Confermato. Per cortesia, torna a PayPal e scegli o aggiungi un indirizzo confermato e poi prova nuovamente.');
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_INSUFFICIENT_FUNDS_ERROR', 'PayPal non risulta in grado di finanziare la transazione. Per cortesia, scegli un diverso metodo di pagamento o controlla i parametri per il finanziamento nel tuo conto Paypal prima di procedere.');
+define('MODULE_PAYMENT_PAYPALWPP_TEXT_PAYPAL_DECLINED', 'Attenzione. PayPal ha rifiutato la transazione e ti prega di contattare il servizio clienti PayPal per ulteriori informazioni. Per completare l\'acquisto, si prega di selezionare un metodo di pagamento alternativo.');
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_ERROR', 'Abbiamo riscontrato un errore mentre processavamo la tua carta di credito. Prova nuovamente, scegli un diverso metodo di pagamento, o contatta il titolare del negozio per assistenza.');
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_BAD_CARD', 'Ci scusiamo per l\'inconveniente, ma non accettiamo il tipo di carta di credito che hai inserito. Per cortesia usa un\'altra carta.');
   define('MODULE_PAYMENT_PAYPALWPP_TEXT_BAD_LOGIN', 'Non siamo riusciti a verificare il tuo account. Per cortesia prova nuovamente.');

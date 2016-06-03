@@ -1,10 +1,10 @@
 <?php
 /**
  * @package languageDefines
- * @copyright Copyright 2003-2006 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: button_names.php 4381 2006-09-03 23:11:18Z drbyte $
+ * @version $Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
  */
 
 
@@ -60,14 +60,14 @@ define('BUTTON_IMAGE_CREATE_ACCOUNT', 'button_create_account.gif');
 define('BUTTON_IMAGE_LOG_OFF', 'button_logoff.gif');
 
 /*
- * ALT tags utilizzati dai bottoni e nei tasti CSS
+ * ALT tags utilizzati dai bottoni, alt tag dei bottoni e nei tasti CSS
  */
 
 define('BUTTON_CREATE_ACCOUNT_ALT', 'Crea');
 define('BUTTON_LOG_OFF_ALT', 'Esci');
 define('BUTTON_ADD_TO_CART_ALT', 'Aggiungi al Carrello');
 define('BUTTON_ADD_ADDRESS_ALT', 'Agg. Indirizzo');
-define('BUTTON_ADD_PRODUCTS_TO_CART_ALT','Aggiungi il prodotto selezionato al Carrello');
+define('BUTTON_ADD_PRODUCTS_TO_CART_ALT','Aggiungi selezione al Carrello');
 define('BUTTON_BACK_ALT', 'Indietro');
 define('BUTTON_BUY_NOW_ALT', 'Acquista');
 define('BUTTON_CANCEL_ALT', 'Cancella');
@@ -83,6 +83,7 @@ define('BUTTON_DOWNLOAD_ALT', 'Scarica subito');
 define('BUTTON_EDIT_SMALL_ALT', 'Modifica');
 define('BUTTON_IN_CART_ALT', 'Nel carrello');
 define('BUTTON_LOGIN_ALT', 'Accedi');
+define('BUTTON_LOOKUP_ALT', 'Consulta');
 define('BUTTON_NEXT_ALT', 'Successivo');
 define('BUTTON_PREVIOUS_ALT', 'Precedente');
 define('BUTTON_REDEEM_ALT', 'Riscuoti');
@@ -104,3 +105,5 @@ define('BUTTON_WRITE_REVIEW_ALT', 'Scrivi Recensione');
 define('BUTTON_READ_REVIEWS_ALT', 'Leggi la Recensione');
 define('BUTTON_GOTO_PROD_DETAILS_ALT', 'Scheda informazioni Articolo');
 define('BUTTON_MORE_REVIEWS_ALT', 'Leggi altre Recensioni');
+define('BUTTON_VIEW_ALL_ALT', 'Vedi Tutte');
+

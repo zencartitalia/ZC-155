@@ -22,7 +22,7 @@ define('TEXT_COUPON_HELP_PRODUCTS', 'Prodotto');
 define('TEXT_ALLOW', 'Consenti');
 define('TEXT_DENY', 'Nega');
 
-define('TEXT_NO_CAT_TOP_ONLY_DENY', '<p>Questo Buono ha specifiche limitazioni di prodotto.</p>');
+define('TEXT_NO_CAT_TOP_ONLY_DENY', '<p>Questo Buono ha specifiche limitazioni di prodotto.');
 
 define('TEXT_ALLOWED', ' (Consentito)');
 define('TEXT_DENIED', ' (Negato)');

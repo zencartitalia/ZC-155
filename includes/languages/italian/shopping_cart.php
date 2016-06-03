@@ -4,14 +4,15 @@
  * @copyright Copyright 2003-2006 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: shopping_cart.php 3183 2006-03-14 07:58:59Z Albigin $
+ * @version Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
  */
+
+define('TEXT_INFORMATION', 'Procedi con il percorso di acquisto cliccando il sottostante tasto Alla Cassa. Spese di spedizione, tasse e sconti sono calcolati nelle successive pagine.');
 
 define('NAVBAR_TITLE', 'Contenuto carrello');
 define('HEADING_TITLE', 'Ecco il contenuto del carrello:');
 define('HEADING_TITLE_EMPTY', 'Il tuo Carrello');
-define('TEXT_INFORMATION', 'NOTA: ad ogni visitatore del nostro negozio online viene assegnato un carrello temporaneo.<br />Se l\'ospite lascia il negozio, il carrello viene svuotato, se accede quale iscritto oppure si registra contestualmente ritrover&agrave; al termine della procedura gli articoli inseriti.
-<br />Se l\'utente registrato intende concludere l\'acquisto in un secondo momento nessun timore, tutti gli articoli rimangono nel carrello personale fin quando si procede alla cassa o li si cancella.');
+
 define('TABLE_HEADING_REMOVE', 'Cancella');
 define('TABLE_HEADING_QUANTITY', 'Qt.&agrave;');
 define('TABLE_HEADING_MODEL', 'Modello');
@@ -29,4 +30,3 @@ define('TEXT_TOTAL_AMOUNT', '&nbsp;&nbsp;Ammontare: ');
 
 define('TEXT_VISITORS_CART', '<a href="javascript:session_win();">[Serve aiuto ?]</a>');
 define('TEXT_OPTION_DIVIDER', '&nbsp;-&nbsp;');
-?>

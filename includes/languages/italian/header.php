@@ -4,7 +4,7 @@
  * @copyright Copyright 2003-2005 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: header.php 2848 2007-09-01 SandroC $
+ * @version Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
  */
 
 // header text in includes/header.php
@@ -27,4 +27,4 @@ define('HEADER_LOGO_IMAGE', 'logo.gif');
 // header Search Button/Box Search Button
 define('HEADER_SEARCH_BUTTON','Cerca');
 define('HEADER_SEARCH_DEFAULT_TEXT','Parole chiave ...');
-?>
+define('SEARCH_DEFAULT_TEXT', 'Cerca qui');

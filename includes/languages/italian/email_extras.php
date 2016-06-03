@@ -1,11 +1,21 @@
 <?php
 /**
- * @package languageDefines
- * @copyright Copyright 2003-2013 Zen Cart Development Team
- * @copyright Portions Copyright 2003 osCommerce
- * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: email_extras.php 7161 2007-10-02 10:58:34Z sandrocarniel $
- */
+* @package languageDefines
+* @copyright Copyright 2003-2013 Zen Cart Development Team
+* @copyright Portions Copyright 2003 osCommerce
+* @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
+* @version Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
+*/
+
+define ('EMAIL_LOGO_FILENAME', 'header.jpg');  //- il file deve essere dentro la cartella /email e sotto cartelle per ogni idioma presente
+define ('EMAIL_LOGO_WIDTH', '550');
+define ('EMAIL_LOGO_HEIGHT', '110');
+define ('EMAIL_LOGO_ALT_TITLE_TEXT', 'Zen Cart! The Art of E-commerce');
+  
+// -----
+// Desiderando includere alcune informazioni extra nella intestazione di ogni e-mail (come ad esempio indirizzo e/o numero di telefono negozio),
+// Impostare questo contenuto HTML completo inserendolo qui sotto; esempio '<div id = "extra-stuff"> Testo extra per l'intestazione </ div>'.
+define ('EMAIL_EXTRA_HEADER_INFO', '');
 
 // office use only
   define('OFFICE_FROM','<strong>Da:</strong>');

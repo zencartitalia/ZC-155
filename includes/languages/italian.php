@@ -1,17 +1,11 @@
 <?php
 /**
  * @package languageDefines
- * @copyright Copyright 2015 Zen Wired Development Team - www.zenwired.com
- * @copyright Portions Copyright 2003-2015 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version Id: italian.php 2015-01-05 16:51 Author: Paolo De Dionigi aka Spike00 Modified in v1.5.4
-*/
-// FOLLOWING WERE moved to meta_tags.php
-//define('TITLE', 'Zen Cart!');
-//define('SITE_TAGLINE', 'The Art of E-commerce');
-//define('CUSTOM_KEYWORDS', 'ecommerce, open source, shop, online shopping');
-// END: moved to meta_tags.php
+ * @version Id: italian.php 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
+ */
 
   define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . zen_href_link(FILENAME_DEFAULT) . '" target="_blank">' . STORE_NAME . '</a> - '.STORE_DATIFISCALI . ' Powered by <a href="http://www.zen-cart.it" target="_blank">Zen Cart</a>');
 
@@ -137,10 +131,8 @@ define('BOX_INFORMATION_PRIVACY', 'Normativa Privacy');
 define('BOX_INFORMATION_CONDITIONS', 'Condizioni di Vendita');
 define('BOX_INFORMATION_SHIPPING', 'Spedizioni &amp; Consegne');
 define('BOX_INFORMATION_CONTACT', 'Info &amp; Contatti');
-  define('BOX_BBINDEX', 'Forum');
-  define('BOX_INFORMATION_UNSUBSCRIBE', 'Cancella Newsletter');
-
-  define('BOX_INFORMATION_SITE_MAP', 'Mappa del Sito');
+define('BOX_INFORMATION_UNSUBSCRIBE', 'Cancella Newsletter');
+define('BOX_INFORMATION_SITE_MAP', 'Mappa del Sito');
 
 // information box text in sideboxes/more_information.php - were TUTORIAL_
   define('BOX_HEADING_MORE_INFORMATION', 'Altre informazioni');
@@ -269,10 +261,10 @@ define('PREVNEXT_TITLE_LAST_PAGE', 'Ultima Pagina');
 define('PREVNEXT_TITLE_PAGE_NO', 'Pag. %d');
 define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', 'Prec. gruppo di %d Pagine');
 define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', 'Succ. gruppo di %d Pagine');
-define('PREVNEXT_BUTTON_FIRST', '&lt;&lt;PRIMA');
-define('PREVNEXT_BUTTON_PREV', '[&lt;&lt;&nbsp;Prec.]');
-define('PREVNEXT_BUTTON_NEXT', '[Succ.&nbsp;&gt;&gt;]');
-define('PREVNEXT_BUTTON_LAST', 'ULTIMA&gt;&gt;');
+define('PREVNEXT_BUTTON_FIRST', '&laquo;PRIMA');
+define('PREVNEXT_BUTTON_PREV', '[&laquo;&nbsp;Prec.]');
+define('PREVNEXT_BUTTON_NEXT', '[Succ.&nbsp;&raquo;]');
+define('PREVNEXT_BUTTON_LAST', 'ULTIMA&raquo;');
 
 define('TEXT_BASE_PRICE','A partire da: ');
 
@@ -507,8 +499,9 @@ define('TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM','Solo Show Room');
 
 // authorization pending
 define('TEXT_AUTHORIZATION_PENDING_PRICE', 'Prezzo non disponibile');
-  define('TEXT_AUTHORIZATION_PENDING_BUTTON_REPLACE', 'IN ATTESA DI APPROVAZIONE');
+define('TEXT_AUTHORIZATION_PENDING_BUTTON_REPLACE', 'IN ATTESA DI APPROVAZIONE');
 define('TEXT_LOGIN_TO_SHOP_BUTTON_REPLACE','Accedi per Acquistare');
+define('TEXT_AUTHORIZATION_PENDING_CHECKOUT', 'Acquisto Bloccato - Attendere Approvazione');
 
 // text pricing
   define('TEXT_CHARGES_WORD','Costo Calcolato:');

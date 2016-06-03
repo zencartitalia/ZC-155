@@ -1,10 +1,10 @@
 <?php
 /**
  * @package languageDefines
- * @copyright Copyright 2003-2006 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: checkout_payment.php 3206 2006-03-19 04:04:09Z Albigin $
+ * @version $Id: 2016-06-03 10:51 Author: Sandro Modified in v1.5.5a
  */
 
 define('NAVBAR_TITLE_1', 'Conferma Ordine');
@@ -31,7 +31,7 @@ define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', '<strong>Vai alla Fase 3</strong>');
 define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '- per confermare la richiesta.');
 
 define('TABLE_HEADING_CONDITIONS', '<span class="termsconditions">Condizioni di vendita</span>');
-define('TEXT_CONDITIONS_DESCRIPTION', '<span class="termsdescription">Seleziona la casella seguente per accettare le Condizioni di vendita. Se vuoi (ri)leggerle, clicca <a href="' . zen_href_link(FILENAME_CONDITIONS, '', 'SSL') . '"><u>QUI</u></a>.');
+define('TEXT_CONDITIONS_DESCRIPTION', '<span class="termsdescription">Seleziona la casella seguente per accettare le Condizioni di vendita. Se vuoi (ri)leggerle, clicca <a href="' . zen_href_link(FILENAME_CONDITIONS, '', 'SSL') . '" target="_blank"><u>QUI</u></a>.');
 define('TEXT_CONDITIONS_CONFIRM', '<span class="termsiagree">Ho letto le Condizioni di vendita e le accetto.</span>');
 
 define('TEXT_CHECKOUT_AMOUNT_DUE', 'Totale dovuto: ');
