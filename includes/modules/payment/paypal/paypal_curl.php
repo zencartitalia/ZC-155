@@ -246,7 +246,7 @@ class paypal_curl extends base {
    *
    * Used to refund all or part of a given transaction
    */
-  function RefundTransaction($oID, $txnID, $amount = 'Full', $note = '', $curCode = 'USD') {
+  function RefundTransaction($oID, $txnID, $amount = 'Full', $note = '', $curCode = 'EUR') {
     if ($this->_mode == 'payflow') {
       $values['ORIGID'] = $txnID;
       $values['TENDER'] = 'C';

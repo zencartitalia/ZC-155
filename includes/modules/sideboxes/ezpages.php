@@ -3,10 +3,11 @@
  * ezpages sidebox - used to display links to EZ-Pages content
  *
  * @package templateSystem
+ * @copyright Copyright 2012 ZenWired Development Team
  * @copyright Copyright 2003-2007 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: ezpages.php 6021 2007-03-17 16:34:19Z ajeh $
+ * @version $Id: ezpages.php 6021 2012-01-21 12:26:15 Spike00 aka Paolo De Dionigi $
  */
 
   $zco_notifier->notify('NOTIFY_START_EZPAGES_SIDEBOX');
@@ -16,7 +17,18 @@
     if (isset($var_linksList)) {
       unset($var_linksList);
     }
-    $page_query = $db->Execute("select * from " . TABLE_EZPAGES . " where status_sidebox = 1 and sidebox_sort_order > 0 order by sidebox_sort_order, pages_title");
+    // query modified for multi-language support
+    $page_query = $db->Execute("select e.pages_id, e.page_open_new_window, e.page_is_ssl, e.alt_url, e.alt_url_external, e.sidebox_sort_order, 
+	                           e.footer_sort_order, e.toc_sort_order, e.toc_chapter, e.page_open_new_window, 
+							   e.page_is_ssl, et.pages_title 
+							   from  " . TABLE_EZPAGES . " e, " . TABLE_EZPAGES_TEXT . " et  
+							   where e.pages_id = et.pages_id 
+	                           and et.languages_id = '" . (int)$_SESSION['languages_id'] . "'  
+						       and status_sidebox = 1 
+							   and sidebox_sort_order > 0 
+							   order by sidebox_sort_order, pages_title");
+    // end of modification							 
+						 
     if ($page_query->RecordCount()>0) {
       $title =  BOX_HEADING_EZPAGES;
       $box_id =  'ezpages';

@@ -3,10 +3,11 @@
  * functions_customers
  *
  * @package functions
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version GIT: $Id: Author: DrByte  Tue Aug 14 12:41:22 2012 -0400 Modified in v1.5.1 $
+ * @version GIT: $Id: Author: Paolo De Dionigi 2016-06-03 Modified in v1.5.1 $
  */
 
 ////
@@ -37,7 +38,10 @@
                              where address_format_id = '" . (int)$address_format_id . "'";
 
     $address_format = $db->Execute($address_format_query);
-    $company = zen_output_string_protected($address['company']);
+// P.IVA + CF - start 
+    $vat = zen_output_string_protected($address['vat']);
+    $fiscalcode = zen_output_string_protected($address['fiscalcode']);
+// P.IVA + CF - end 
     if (isset($address['firstname']) && zen_not_null($address['firstname'])) {
       $firstname = zen_output_string_protected($address['firstname']);
       $lastname = zen_output_string_protected($address['lastname']);
@@ -105,10 +109,24 @@
     $fmt = $address_format->fields['format'];
     eval("\$address_out = \"$fmt\";");
 
-    if ( (ACCOUNT_COMPANY == 'true') && (zen_not_null($company)) ) {
-      $address_out = $company . $cr . $address_out;
+// P.IVA + CF - start  
+    if(zen_not_null($company)){
+      if ( (ACCOUNT_CF == 'true') && (zen_not_null($fiscalcode)) ) {
+        $address_out = ENTRY_CF . " " . $fiscalcode . $cr . $address_out;
+      }
+      if ( (ACCOUNT_VAT == 'true') && (zen_not_null($vat)) ) {
+        $address_out = ENTRY_VAT . " " . $vat . $cr . $address_out;
+      }
+      if ( (ACCOUNT_COMPANY == 'true') && (zen_not_null($company)) ) {
+        $address_out = $company . $cr . $address_out;
+      }
     }
-
+    else {
+      if ( (ACCOUNT_CF == 'true') && (zen_not_null($fiscalcode)) ) {
+        $address_out = $address_out . $cr . ENTRY_CF . " " . $fiscalcode;
+      }
+    }
+// P.IVA + CF - end
     return $address_out;
   }
 
@@ -121,7 +139,7 @@
                              entry_company as company, entry_street_address as street_address,
                              entry_suburb as suburb, entry_city as city, entry_postcode as postcode,
                              entry_state as state, entry_zone_id as zone_id,
-                             entry_country_id as country_id
+                             entry_country_id as country_id, entry_vat as vat, entry_cf as fiscalcode
                       from " . TABLE_ADDRESS_BOOK . "
                       where customers_id = '" . (int)$customers_id . "'
                       and address_book_id = '" . (int)$address_id . "'";

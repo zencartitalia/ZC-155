@@ -3,10 +3,11 @@
  * ez_pages ("page") header_php.php
  *
  * @package page
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2014 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version GIT: $Id: Author: DrByte  Modified in v1.5.4 $
+ * @version GIT: $Id: Author: Paolo De Dionigi aka Spike00 2016-06-03 Modified in v1.5.4 $
  */
 /*
 * This "page" page is the display component of the ez-pages module
@@ -25,9 +26,12 @@ if ($ezpage_id == 0) zen_redirect(zen_href_link(FILENAME_DEFAULT));
 $chapter_id = (int)$_GET['chapter'];
 $chapter_link = (int)$_GET['chapter'];
 
-$sql = "select * from " . TABLE_EZPAGES . " where pages_id = " . (int)$ezpage_id;
+$sql = "select * from " . TABLE_EZPAGES . " e, " . TABLE_EZPAGES_TEXT . " et 
+        where e.pages_id = et.pages_id 
+	      and et.languages_id = '" . (int)$_SESSION['languages_id'] . "' 
+	      and e.pages_id = " . (int)$ezpage_id;
 // comment the following line to allow access to pages which don't have a status switch set to Yes:
-$sql .= " AND (status_toc > 0 or status_header > 0 or status_sidebox > 0 or status_footer > 0)";
+$sql .= " AND (e.status_toc > 0 or e.status_header > 0 or e.status_sidebox > 0 or e.status_footer > 0)";
 
 // Check to see if page exists and is accessible, retrieving relevant details for display if found
 $var_pageDetails = $db->Execute($sql);
@@ -45,11 +49,18 @@ $vert_links = array();
 $toc_links = array();
 //  $pages_order_query = "SELECT pages_id FROM " . TABLE_EZPAGES . " WHERE status = 1 and vertical_sort_order <> 0 ORDER BY vertical_sort_order, horizontal_sort_order, pages_title";
 //  $pages_order_query = "SELECT * FROM " . TABLE_EZPAGES . " WHERE ((status_sidebox = 1 and sidebox_sort_order <> 0) or (status_footer = 1 and footer_sort_order <> 0) or (status_header = 1 and header_sort_order <> 0)) and alt_url_external = '' ORDER BY header_sort_order, sidebox_sort_order, footer_sort_order, pages_title";
-$pages_order_query = "SELECT *
-                      FROM " . TABLE_EZPAGES . "
+
+// next query modified for multi-language support
+$pages_order_query = "SELECT e.pages_id, e.page_open_new_window, e.page_is_ssl, e.alt_url, e.alt_url_external, e.header_sort_order, e.sidebox_sort_order, 
+                      e.footer_sort_order, e.toc_sort_order, e.toc_chapter, e.status_header, e.status_sidebox, e.status_footer, status_toc, et.pages_title, 
+					  et.pages_html_text  
+					  FROM  " . TABLE_EZPAGES . " e, " . TABLE_EZPAGES_TEXT . " et 
                       WHERE ((status_toc = 1 and toc_sort_order <> 0) and toc_chapter= :chapterID )
-                      AND alt_url_external = '' and alt_url = ''
+                      AND alt_url_external = '' and alt_url = '' 
+					  AND et.languages_id = '" . (int)$_SESSION['languages_id'] . "' 
+					  AND e.pages_id = et.pages_id
                       ORDER BY toc_sort_order, pages_title";
+// end modification
 
 $pages_order_query = $db->bindVars($pages_order_query, ':chapterID', $chapter_id, 'integer');
 $pages_ordering = $db->execute($pages_order_query);

@@ -3,10 +3,11 @@
  * Contact Us Page
  *
  * @package page
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Author: DrByte  Sun Oct 18 23:02:01 2015 -0400 Modified in v1.5.5 $
+ * @version $Id: Author: Paolo De Dionigi aka Spike00 2016-06-03 Modified in v1.5.5 $
  */
 
 // This should be first line of the script:
@@ -24,7 +25,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
 
   $zc_validate_email = zen_validate_email($email_address);
 
-  if ($zc_validate_email and !empty($enquiry) and !empty($name) && $error == FALSE) {
+ if ($zc_validate_email and !empty($enquiry) and !empty($name) and (isset($_POST['privacy_conditions']) || ($_POST['privacy_conditions'] == '1')) && $error == FALSE) {
     // if anti-spam is not triggered, prepare and send email:
    if ($antiSpam != '') {
       $zco_notifier->notify('NOTIFY_SPAM_DETECTED_USING_CONTACT_US', $_POST);
@@ -87,6 +88,11 @@ if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
     if (empty($enquiry)) {
       $messageStack->add('contact', ENTRY_EMAIL_CONTENT_CHECK_ERROR);
     }
+    if (DISPLAY_PRIVACY_CONDITIONS == 'true') {
+    if (!isset($_POST['privacy_conditions']) || ($_POST['privacy_conditions'] != '1')) {
+      $messageStack->add('contact', ERROR_PRIVACY_STATEMENT_NOT_ACCEPTED, 'error');
+    }
+  }
   }
 } // end action==send
 

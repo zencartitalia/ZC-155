@@ -6,10 +6,11 @@
  * Displays contact us page form.
  *
  * @package templateSystem
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: rbarbour zcadditions.com Fri Feb 26 00:03:33 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Author: Paolo De Dionigi aka Spike00 2016-06-04 Modified in v1.5.5 $
  */
 ?>
 <div class="centerColumn" id="contactUsDefault">
@@ -71,6 +72,14 @@
 
 <label for="enquiry"><?php echo ENTRY_ENQUIRY; ?></label>
 <?php echo zen_draw_textarea_field('enquiry', '30', '7', $enquiry, 'id="enquiry" placeholder="' . ENTRY_REQUIRED_SYMBOL . '" required'); ?>
+<br class="clearBoth" />
+
+<?php if (DISPLAY_PRIVACY_CONDITIONS == 'true') { ?>
+<legend><?php echo TABLE_HEADING_PRIVACY_CONDITIONS; ?></legend>
+<div class="information"><?php echo TEXT_PRIVACY_CONTACT_US_DESCRIPTION;?></div>
+<?php echo zen_draw_checkbox_field('privacy_conditions', '1', false, 'id="privacy"');?>
+<label class="checkboxLabel" for="privacy"><?php echo TEXT_PRIVACY_CONDITIONS_CONFIRM;?></label>
+<?php } ?>
 
 <?php echo zen_draw_input_field('should_be_empty', '', ' size="40" id="CUAS" style="visibility:hidden; display:none;" autocomplete="off"'); ?>
 

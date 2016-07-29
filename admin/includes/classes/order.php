@@ -1,10 +1,11 @@
 <?php
 /**
  * @package admin
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Author: DrByte  Fri Jan 1 12:23:19 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Author: Spike00 aka Paolo De Dionigi 03/06/2016 Modified in v1.5.5 $
  */
 
   class order extends base {
@@ -22,6 +23,8 @@
 
     function query($order_id) {
       global $db;
+  // P.IVA + CF - start
+/*
       $order = $db->Execute("select cc_cvv, customers_name, customers_company, customers_street_address,
                                     customers_suburb, customers_city, customers_postcode, customers_id,
                                     customers_state, customers_country, customers_telephone,
@@ -37,8 +40,24 @@
                                     order_total, order_tax, ip_address
                              from " . TABLE_ORDERS . "
                              where orders_id = '" . (int)$order_id . "'");
-
-
+*/
+      $order = $db->Execute("select cc_cvv, customers_name, customers_company, customers_street_address,
+                                    customers_suburb, customers_city, customers_postcode, customers_id,
+                                    customers_state, customers_country, customers_telephone,
+                                    customers_email_address, customers_address_format_id, delivery_name,
+                                    delivery_company, delivery_street_address, delivery_suburb,
+                                    delivery_city, delivery_postcode, delivery_state, delivery_country,
+                                    delivery_address_format_id, billing_name, billing_company,
+                                    billing_vat, billing_cf,
+                                    billing_street_address, billing_suburb, billing_city, billing_postcode,
+                                    billing_state, billing_country, billing_address_format_id,
+                                    coupon_code, payment_method, payment_module_code, shipping_method, shipping_module_code,
+                                    cc_type, cc_owner, cc_number, cc_expires, currency,
+                                    currency_value, date_purchased, orders_status, last_modified,
+                                    order_total, order_tax, ip_address
+                             from " . TABLE_ORDERS . "
+                             where orders_id = '" . (int)$order_id . "'");
+// P.IVA + CF - end
       $totals = $db->Execute("select title, text, class, value
                               from " . TABLE_ORDERS_TOTAL . "
                               where orders_id = '" . (int)$order_id . "'
@@ -101,7 +120,8 @@
                               'state' => $order->fields['delivery_state'],
                               'country' => $order->fields['delivery_country'],
                               'format_id' => $order->fields['delivery_address_format_id']);
-
+// P.IVA + CF - start
+/*
       $this->billing = array('name' => $order->fields['billing_name'],
                              'company' => $order->fields['billing_company'],
                              'street_address' => $order->fields['billing_street_address'],
@@ -111,7 +131,19 @@
                              'state' => $order->fields['billing_state'],
                              'country' => $order->fields['billing_country'],
                              'format_id' => $order->fields['billing_address_format_id']);
-
+*/
+     $this->billing = array('name' => $order->fields['billing_name'],
+                             'company' => $order->fields['billing_company'],
+							 'vat' => $order->fields['billing_vat'],
+                             'fiscalcode' => $order->fields['billing_cf'],	
+                             'street_address' => $order->fields['billing_street_address'],
+                             'suburb' => $order->fields['billing_suburb'],
+                             'city' => $order->fields['billing_city'],
+                             'postcode' => $order->fields['billing_postcode'],
+                             'state' => $order->fields['billing_state'],
+                             'country' => $order->fields['billing_country'],
+                             'format_id' => $order->fields['billing_address_format_id']);
+// P.IVA + CF - end
       $index = 0;
       $orders_products = $db->Execute("select orders_products_id, products_id, products_name, products_model,
                                               products_price, products_tax, products_quantity,

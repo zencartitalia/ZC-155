@@ -3,10 +3,11 @@
  * functions_customers
  *
  * @package functions
+ * @copyright Copyright 2012 ZenWired Development Team
  * @copyright Copyright 2003-2005 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: functions_customers.php 4793 2006-10-20 05:25:20Z ajeh $
+ * @version $Id: functions_customers.php 4793 2012-01-20 11:36:53 Spike00 aka Paolo De Dionigi $
  */
 
 // NOTE: these are from catalog functions_customers for now
@@ -40,6 +41,10 @@
 
     $address_format = $db->Execute($address_format_query);
     $company = zen_output_string_protected($address['company']);
+// P.IVA + CF - start
+    $vat = zen_output_string_protected($address['vat']);
+    $fiscalcode = zen_output_string_protected($address['fiscalcode']);
+// P.IVA + CF - end
     if (isset($address['firstname']) && zen_not_null($address['firstname'])) {
       $firstname = zen_output_string_protected($address['firstname']);
       $lastname = zen_output_string_protected($address['lastname']);
@@ -107,6 +112,16 @@
     $fmt = $address_format->fields['format'];
     eval("\$address_out = \"$fmt\";");
 
+ // P.IVA + CF - start
+    if ( (ACCOUNT_CF == 'true') && (zen_not_null($fiscalcode)) ) {
+      $address_out = "Codice fiscale: " . $fiscalcode . $cr . $address_out;
+    }
+
+    if ( (ACCOUNT_VAT == 'true') && (zen_not_null($vat)) ) {
+      $address_out = "P.IVA: " . $vat . $cr . $address_out;
+    }
+  // P.IVA + CF - end
+
     if ( (ACCOUNT_COMPANY == 'true') && (zen_not_null($company)) ) {
       $address_out = $company . $cr . $address_out;
     }
@@ -123,7 +138,7 @@
                              entry_company as company, entry_street_address as street_address,
                              entry_suburb as suburb, entry_city as city, entry_postcode as postcode,
                              entry_state as state, entry_zone_id as zone_id,
-                             entry_country_id as country_id
+                             entry_country_id as country_id, entry_vat as vat, entry_cf as fiscalcode
                       from " . TABLE_ADDRESS_BOOK . "
                       where customers_id = '" . (int)$customers_id . "'
                       and address_book_id = '" . (int)$address_id . "'";

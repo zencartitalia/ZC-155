@@ -137,6 +137,11 @@ function check_form(form_name) {
   check_input("lastname", <?php echo (int)ENTRY_LAST_NAME_MIN_LENGTH; ?>, "<?php echo ENTRY_LAST_NAME_ERROR; ?>");
 <?php } ?>
 
+  // P.IVA + CF - start (aggiunto il controllo anche per il campo company)
+<?php if (ACCOUNT_VAT == 'true' && (int)ENTRY_VAT_MIN_LENGTH != 0) echo '  check_input("vat", ' . (int)ENTRY_VAT_MIN_LENGTH . ', "' . ENTRY_VAT_ERROR . '");' . "\n"; ?>
+<?php if (ACCOUNT_CF == 'true' && (int)ENTRY_CF_MIN_LENGTH != 0) echo '  check_input("fiscal_code", ' . (int)ENTRY_CF_MIN_LENGTH . ', "' . ENTRY_CF_ERROR . '");' . "\n"; ?>
+  // P.IVA + CF - start
+
 <?php if (ACCOUNT_DOB == 'true' && (int)ENTRY_DOB_MIN_LENGTH != 0) echo '  check_input("dob", ' . (int)ENTRY_DOB_MIN_LENGTH . ', "' . ENTRY_DATE_OF_BIRTH_ERROR . '");' . "\n"; ?>
 <?php if (ACCOUNT_COMPANY == 'true' && (int)ENTRY_COMPANY_MIN_LENGTH != 0) echo '  check_input("company", ' . (int)ENTRY_COMPANY_MIN_LENGTH . ', "' . ENTRY_COMPANY_ERROR . '");' . "\n"; ?>
 

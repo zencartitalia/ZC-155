@@ -3,10 +3,11 @@
  * create_account header_php.php
  *
  * @package modules
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Author: zcwilt Fri Apr 15  Modified in v1.5.5 $
+ * @version $Id: Author: Paolo De Dionigi aka Spike00 2016-06-04 Modified in v1.5.5 $
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_CREATE_ACCOUNT');
@@ -49,7 +50,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     $email_format = zen_db_prepare_input($_POST['email_format']);
   }
 
-  if (ACCOUNT_COMPANY == 'true') $company = zen_db_prepare_input($_POST['company']);
+  // P.IVA + CF - start
+  if (ACCOUNT_VAT == 'true') $vat = zen_db_prepare_input($_POST['vat']);
+  if (ACCOUNT_CF == 'true') $fiscalcode = zen_db_prepare_input($_POST['fiscalcode']);
+  // P.IVA + CF - end
   $firstname = zen_db_prepare_input(zen_sanitize_string($_POST['firstname']));
   $lastname = zen_db_prepare_input(zen_sanitize_string($_POST['lastname']));
   $nick = zen_db_prepare_input($_POST['nick']);
@@ -124,6 +128,23 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     }
   }
 
+  // P.IVA + CF - start
+  
+  if (ACCOUNT_VAT == 'true') {
+    if ((int)ENTRY_VAT_MIN_LENGTH > 0 && strlen($vat) < ENTRY_VAT_MIN_LENGTH) {
+      $error = true;
+      $messageStack->add('create_account', ENTRY_VAT_ERROR);
+    }
+  }
+
+  if (ACCOUNT_CF == 'true') {
+    if ((int)ENTRY_CF_MIN_LENGTH > 0 && strlen($fiscalcode) < ENTRY_CF_MIN_LENGTH) {
+      $error = true;
+      $messageStack->add('create_account', ENTRY_CF_ERROR);
+    }
+  }
+  
+  // P.IVA + CF - end
 
   if (strlen($email_address) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
     $error = true;
@@ -298,6 +319,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
     if (ACCOUNT_GENDER == 'true') $sql_data_array[] = array('fieldName'=>'entry_gender', 'value'=>$gender, 'type'=>'stringIgnoreNull');
     if (ACCOUNT_COMPANY == 'true') $sql_data_array[] = array('fieldName'=>'entry_company', 'value'=>$company, 'type'=>'stringIgnoreNull');
+  // P.IVA + CF - start
+    if (ACCOUNT_VAT == 'true') $sql_data_array[] = array('fieldName'=>'entry_vat', 'value'=>$vat, 'type'=>'stringIgnoreNull');
+    if (ACCOUNT_CF == 'true') $sql_data_array[] = array('fieldName'=>'entry_cf', 'value'=>$fiscalcode, 'type'=>'stringIgnoreNull');
+  // P.IVA + CF - end
     if (ACCOUNT_SUBURB == 'true') $sql_data_array[] = array('fieldName'=>'entry_suburb', 'value'=>$suburb, 'type'=>'stringIgnoreNull');
 
     if (ACCOUNT_STATE == 'true') {

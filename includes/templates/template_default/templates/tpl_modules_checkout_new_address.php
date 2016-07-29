@@ -5,10 +5,11 @@
  * Allows entry of new addresses during checkout stages
  *
  * @package templateSystem
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: rbarbour zcadditions.com Fri Feb 26 00:03:33 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Author: Paolo De Dionigi ala Spike00 2016-06-04 Modified in v1.5.5 $
  */
 ?>
 <div class="centerColumnModule" id="checkoutNewAddress">
@@ -43,6 +44,19 @@
 <br class="clearBoth" />
 <?php
   }
+  // P.IVA + CF - start
+  if (ACCOUNT_VAT == 'true') {?>
+<label class="inputLabel" for="vat"><?php echo ENTRY_VAT; ?></label>
+<?php echo zen_draw_input_field('vat', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_vat', '40') . ' id="vat" placeholder="' . ENTRY_VAT_TEXT . '"' . (ACCOUNT_VAT == 'true' && (int)ENTRY_VAT_MIN_LENGTH != 0 ? ' required' : '')); ?>
+<br class="clearBoth" />
+<?php
+  }
+  if (ACCOUNT_CF == 'true') {?>
+<label class="inputLabel" for="fiscalcode"><?php echo ENTRY_CF; ?></label>
+<?php echo zen_draw_input_field('fiscalcode', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_cf', '40') . ' id="fiscalcode" placeholder="' . ENTRY_CF_TEXT . '"' . (ACCOUNT_CF == 'true' && (int)ENTRY_CF_MIN_LENGTH != 0 ? ' required' : '')); ?>
+<?php
+  }
+  // P.IVA + CF - end
 ?>
 
 <label class="inputLabel" for="street-address"><?php echo ENTRY_STREET_ADDRESS; ?></label>

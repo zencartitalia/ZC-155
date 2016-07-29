@@ -70,7 +70,7 @@ class paypalwpp extends base {
    *
    * @var string
    */
-  var $buttonSourceEC = 'ZenCart-EC_us';
+  var $buttonSourceEC = 'IT_ZenCart-EC';
   /**
    * order status setting for pending orders
    *
@@ -133,7 +133,7 @@ class paypalwpp extends base {
       if ($this->enabled) {
         if ( (MODULE_PAYMENT_PAYPALWPP_MODULE_MODE == 'PayPal' && (MODULE_PAYMENT_PAYPALWPP_APISIGNATURE == '' || MODULE_PAYMENT_PAYPALWPP_APIUSERNAME == '' || MODULE_PAYMENT_PAYPALWPP_APIPASSWORD == ''))
           || (substr(MODULE_PAYMENT_PAYPALWPP_MODULE_MODE,0,7) == 'Payflow' && (MODULE_PAYMENT_PAYPALWPP_PFPARTNER == '' || MODULE_PAYMENT_PAYPALWPP_PFVENDOR == '' || MODULE_PAYMENT_PAYPALWPP_PFUSER == '' || MODULE_PAYMENT_PAYPALWPP_PFPASSWORD == ''))
-          ) $this->title .= '<span class="alert"><strong> NOT CONFIGURED YET</strong></span>';
+          ) $this->title .= '<span class="alert"><strong> NOT CONFIGURED YET</strong></span>'. ' ' . '<a href="http://www.zen-cart.it/partners/paypal/Guida_PayPal.pdf" target="_blank"><b>Guida</b></a>'; //link Guida
         if (MODULE_PAYMENT_PAYPALWPP_SERVER =='sandbox') $this->title .= '<strong><span class="alert"> (sandbox active)</span></strong>';
         if (MODULE_PAYMENT_PAYPALWPP_DEBUGGING =='Log File' || MODULE_PAYMENT_PAYPALWPP_DEBUGGING =='Log and Email') $this->title .= '<strong> (Debug)</strong>';
         if (!function_exists('curl_init')) $this->title .= '<strong><span class="alert"> CURL NOT FOUND. Cannot Use.</span></strong>';
@@ -142,6 +142,9 @@ class paypalwpp extends base {
       $this->description = MODULE_PAYMENT_PAYPALWPP_TEXT_DESCRIPTION;
       $this->title = MODULE_PAYMENT_PAYPALWPP_EC_TEXT_TITLE; //pp
     }
+    if (!$this->enabled) {
+$this->title = MODULE_PAYMENT_PAYPALWPP_TEXT_ADMIN_TITLE_EC . ' ' . '<a href="http://www.zen-cart.it/partners/paypal/Guida_PayPal.pdf" target="_blank"><b>Guida</b></a>'; //pp link Guida
+}
 
     if ((!defined('PAYPAL_OVERRIDE_CURL_WARNING') || (defined('PAYPAL_OVERRIDE_CURL_WARNING') && PAYPAL_OVERRIDE_CURL_WARNING != 'True')) && !function_exists('curl_init')) $this->enabled = false;
 
@@ -151,15 +154,15 @@ class paypalwpp extends base {
     $this->showPaymentPage = (MODULE_PAYMENT_PAYPALWPP_SKIP_PAYMENT_PAGE == 'No') ? true : false;
     $this->sort_order = MODULE_PAYMENT_PAYPALWPP_SORT_ORDER;
 
-    $this->buttonSourceEC = 'ZenCart-EC_us';
-    $this->buttonSourceDP = 'ZenCart-DP_us';
+    $this->buttonSourceEC = 'IT_zencart-ECS';
+    $this->buttonSourceDP = 'IT_zencart-ECM';
     if (MODULE_PAYMENT_PAYPALWPP_MODULE_MODE == 'Payflow-UK') {
-      $this->buttonSourceEC = 'ZenCart-EC_uk';
-      $this->buttonSourceDP = 'ZenCart-DP_uk';
+      $this->buttonSourceEC = 'IT_zencart-ECS';
+      $this->buttonSourceDP = 'IT_zencart-ECM';
     }
     if (MODULE_PAYMENT_PAYPALWPP_MODULE_MODE == 'Payflow-US') {
-      $this->buttonSourceEC = 'ZenCart-ECGW_us';
-      $this->buttonSourceDP = 'ZenCart-GW_us';
+      $this->buttonSourceEC = 'IT_zencart-ECS';
+      $this->buttonSourceDP = 'IT_zencart-ECM';
     }
 
     $this->order_pending_status = MODULE_PAYMENT_PAYPALWPP_ORDER_PENDING_STATUS_ID;

@@ -1,11 +1,12 @@
 <?php
 /**
  * @package admin
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2011 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @copyright Portions Copyright (c) 2004 DevosC.com    
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: paypal.php 18799 2011-05-25 12:29:41Z wilt $
+ * @version $Id: paypal.php Paolo De Dionigi aka Spike00 2016-06-03 $
  */
 
   require('includes/application_top.php');
@@ -52,7 +53,7 @@
   $action = (isset($_GET['action']) ? $_GET['action'] : '');
   $selected_status = (isset($_GET['payment_status']) ? $_GET['payment_status'] : '');
 
-  require(DIR_FS_CATALOG_MODULES . 'payment/paypal.php');
+  require(DIR_FS_CATALOG_MODULES . 'payment/paypal.DISATTIVATO-php');
 
   $payment_statuses = array();
   $payment_status_trans = $db->Execute("select payment_status_name as payment_status from " . TABLE_PAYPAL_PAYMENT_STATUS );

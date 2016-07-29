@@ -38,44 +38,44 @@ $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists(
 <div>
 <img src="<?php echo $relPath; ?>includes/templates/template_default/images/logo.gif" alt="Zen Cart&reg;" title=" Zen Cart&reg; " width="192" height="64" border="0" />
 </div>
-<h1>Hello. Thank you for loading Zen Cart&reg;.</h1>
-<h2>You are seeing this page for one or more reasons:</h2>
+
+<h1>Siamo felici che tu abbia scelto Zen Cart&reg;.</h1>
+<h2>Stai vedendo questa pagina per una o pi&ugrave; ragioni:</h2>
 <ol>
-<li>This is your <strong>first time using Zen Cart&reg;</strong> and you haven't yet completed the normal Installation procedure.<br />
-If this is the case for you,
+<li>Questa &egrave; la <strong>prima volta che usi Zen Cart&reg;</strong> e non hai ancora completato la procedura di installazione.<br />
+Se questo &egrave; il tuo caso, 
 <?php if ($instPath) { ?>
-<a href="<?php echo $instPath; ?>">Click here</a> to begin installation.
+<a href="<?php echo $instPath; ?>">clicca qui</a> per procedere con l'installazione.
 <?php } else { ?>
-you will need to upload the "zc_install" folder using your FTP program, and then run <a href="<?php echo $instPath; ?>">zc_install/index.php</a> via your browser (or reload this page to see a link to it).
+dovrai caricare nel tuo spazio web la cartella "zc_install" con un programma FTP, e poi lanciare <a href="<?php echo $instPath; ?>">zc_install/index.php</a> dal browser (o ricaricare questa pagina per vedere il collegamento).
 <?php } ?>
-<br /><br />
-</li>
-<li>Your <tt><strong>/includes/configure.php</strong></tt> and/or <tt><strong>/admin/includes/configure.php</strong></tt> file contains invalid <em>path information</em> and/or invalid <em>database-connection information</em>.<br />
-If you recently edited your configure.php files for any reason, or maybe moved your site to a different folder or different server, then you'll need to review and update all your settings to the correct values for your server.<br />
-Additionally, if the permissions have been changed on your configure.php files, then maybe they're too low for the files to be read.<br />
-Or the configure.php files could be missing altogether.<br />
-Or your hosting company has recently changed the server's PHP configuration (or upgraded its version) then they may have broken things as well.<br />
-See the <a href="http://tutorials.zen-cart.com" target="_blank">Online FAQ and Tutorials</a> area on the Zen Cart&reg; website for assistance.</li>
+<br /><br /></li>
+<li>I tuoi file <tt><strong>/includes/configure.php</strong></tt> e/o <tt><strong>/admin/includes/configure.php</strong></tt> contengono dei <em>percorsi</em> errati e/o la <em>connessione al database</em> non &egrave; corretta.<br />
+Se hai di recente modificato i file di configurazione o spostato il tuo sito di cartella o fra server diversi, dovrai necessariamente rivedere ed aggiornare il settaggio con i valori corretti per questo locazione e/o server.<br />
+Inoltre, se sono stati modificati i permessi ai file configure.php questi potrebbero essere insufficienti per leggere i file. <br />
+Oppure i file configure.php potrebbero mancare del tutto.<br />
+Or your hosting company has recently changed the server's PHP configuration (or upgraded its version) then they may have broken things as well.
+Oppure potrebbe dipendere dal tuo fornitore di hosting che ha recentemente cambiato la configurazione PHP del server (o aggiornato la versione).<br />
+Vedi <a href="http://www.zen-cart.it/faq" target="_blank">FAQ</a> e <a href="http://www.zen-cart.it/documentazione" target="_blank">Documentazione</a> per maggiori informazioni.</li>
 <?php if (isset($problemString) && $problemString != '') { ?>
-<li class="errorDetails">Additional *IMPORTANT* Details: <?php echo $problemString; ?></li>
+<li class="errorDetails">Altri Dettagli *IMPORTANTI*: <?php echo $problemString; ?></li>
 <?php } ?>
 </ol>
 <br />
-<h2>To begin installation ...</h2>
+<h2>Per iniziare l'installazione ...</h2> 
 <ol>
 <?php if ($docsPath) { ?>
-<li>The <a href="<?php echo $docsPath; ?>">Installation Documentation</a> can be read by clicking here: <a href="<?php echo $docsPath; ?>">Documentation</a></li>
+<li>La <a href="<?php echo $docsPath; ?>">Installation Documentation</a> (in inglese) pu&ograve; essere letta da qui: <a href="<?php echo $docsPath; ?>">Documentation</a></li>
 <?php } else { ?>
-<li>Installation documentation is normally found in the /docs folder of the Zen Cart&reg; distribution files/zip. You can also find documentation in the <a href="http://tutorials.zen-cart.com" target="_blank">Online FAQs</a>.</li>
+<li>La documentazione di installazione &egrave; usualmente posta nella cartella /docs della distribuzione di Zen Cart&trade; nel file zip. Ulteriore documentazione &egrave; disponibile nelle nostre <a href="http://www.zen-cart.it/faq" target="_blank">FAQ</a>.</li>
 <?php } ?>
 <?php if ($instPath) { ?>
-<li>Run <a href="<?php echo $instPath; ?>">zc_install/index.php</a> via your browser.</li>
+<li>Inizia il processo <a href="<?php echo $instPath; ?>">zc_install/index.php</a> dal tuo browser.</li>
 <?php } else { ?>
-<li>You will need to upload the "zc_install" folder using your FTP program, and then run <a href="<?php echo $instPath; ?>">zc_install/index.php</a> via your browser (or reload this page to see a link to it).</li>
+<li>Dovrai caricare nel tuo spazio web la cartella "zc_install" con un programma FTP, e poi lanciare <a href="<?php echo $instPath; ?>">zc_install/index.php</a> dal browser (o ricaricare questa pagina per vedere il collegamento).</li>
 <?php } ?>
-<li>The <a href="http://tutorials.zen-cart.com" target="_blank">Online FAQ and Tutorials</a> area on the Zen Cart&reg; website will also be of value if you run into difficulties.</li>
+<li>Vi sono a disposizione ulteriori <a href="http://tutorials.zen-cart.com" target="_blank">Online FAQ and Tutorials</a> nel sito Zen Cart&trade; USA.</li>
 </ol>
-
 </div>
-    <p style="text-align: center; font-size: small;">Copyright &copy; 2003-<?php echo date('Y'); ?> <a href="http://www.zen-cart.com" target="_blank">Zen Cart&reg;</a></p>
+<p style="text-align: center; font-size: small;">Copyright &copy; 2003-<?php echo date('Y'); ?> <a href="http://www.zen-cart.com" target="_blank">Zen Cart&reg;</a></p>
 </body></html>

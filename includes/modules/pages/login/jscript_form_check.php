@@ -3,10 +3,11 @@
  * jscript_form_check
  *
  * @package page
+ * @copyright Copyright 2016 ZenWired Development Team
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Author: DrByte  Wed Jan 6 12:47:43 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Author: Paolo De Dionigi aka Spike00 2016-06-03 Modified in v1.5.5 $
  */
 ?>
 <script type="text/javascript"><!--
@@ -139,6 +140,11 @@ function check_form(form_name) {
 
 <?php if (ACCOUNT_DOB == 'true' && (int)ENTRY_DOB_MIN_LENGTH != 0) echo '  check_input("dob", ' . (int)ENTRY_DOB_MIN_LENGTH . ', "' . ENTRY_DATE_OF_BIRTH_ERROR . '");' . "\n"; ?>
 <?php if (ACCOUNT_COMPANY == 'true' && (int)ENTRY_COMPANY_MIN_LENGTH != 0) echo '  check_input("company", ' . (int)ENTRY_COMPANY_MIN_LENGTH . ', "' . ENTRY_COMPANY_ERROR . '");' . "\n"; ?>
+
+// P.IVA + CF - start
+<?php if (ACCOUNT_VAT == 'true' && (int)ENTRY_VAT_MIN_LENGTH != 0) echo '  check_input("vat", ' . (int)ENTRY_VAT_MIN_LENGTH . ', "' . ENTRY_VAT_ERROR . '");' . "\n"; ?>
+<?php if (ACCOUNT_CF == 'true' && (int)ENTRY_CF_MIN_LENGTH != 0) echo '  check_input("fiscalcode", ' . (int)ENTRY_CF_MIN_LENGTH . ', "' . ENTRY_CF_ERROR . '");' . "\n"; ?>
+  // P.IVA + CF - end
 
 <?php if ((int)ENTRY_EMAIL_ADDRESS_MIN_LENGTH > 0) { ?>
   check_input("email_address", <?php echo (int)ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>, "<?php echo ENTRY_EMAIL_ADDRESS_ERROR; ?>");
