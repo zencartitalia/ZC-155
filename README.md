@@ -1,11 +1,12 @@
-Zen Cart&reg; - The Art of E-Commerce
+
+Zen Cart&reg; - L'Arte dell'E-Commerce
 ===============
 
-Zen Cart&reg; was the first Open Source e-Commerce web application to be fully PA-DSS Certified.
+Zen Cart&reg; è stata la prima applicazione web Open Source ad essere completamente certificata PA-DSS.
 
-Zen Cart&reg; v1.5.5 is an update with several bugfix patches applied on top of the PA-DSS Certified version v1.5.4.
+La versione 1.5.5 è un aggiornamento con diverse patch così da mantenere la certificazione PA-DSS versione v1.5.4.
 
-It's free software, with free community-driven support available 24/7 on the Zen Cart&reg; Support Site forums at <http://www.zen-cart.com/forum.php>
+Zen Cart&reg; è un software gratuito con supporto gratuito disponibile 24/7 da una community Zen-Cart® nel forum di supporto del sito a <http://www.zen-cart.it/forum/>
 
 --------------------
 
@@ -13,65 +14,144 @@ It's free software, with free community-driven support available 24/7 on the Zen
 Zen Cart&reg; v1.5.5
 --------------------
 
-Compatibility
+Compatibilità
 -------------
-Zen Cart v1.5.5 is designed for:
- * PHP 5.6 and PHP 7.0  (but is compatible with as far back as 5.2.10)
- * Apache 2.2 (and 2.4 with access_compat mod installed for custom .htaccess rule support)
- * MySQL 5.1 to 5.7
+Zen Cart v1.5.5 è predisposto per:
+ * PHP 5.6 e PHP 7.0  (con una retro compatibilità sino a 5.2.10)
+ * Apache 2.2 (e 2.4 con access_compat mod installato e regola definita in .htaccess)
+ * MySQL da 5.1 a 5.7
 
 
-Installation
+Installazione
 ------------
 
-Installation is simple:
+L'installazione:
 
-1. [Download Zen Cart&reg;](http://sourceforge.net/projects/zencart/files)
-2. Ensure you check that the md5/sha1 hash of the Zip matches those publicly posted.
-  * The md5/sha1 values for verifying the zip files hosted at Sourceforge are displayed on the [Zen Cart&reg; website](https://www.zen-cart.com/) along with [instructions on how to verify the file using the hash values](http://www.zen-cart.com/content.php?305).
-3. Unzip the downloaded zip file 
-4. Everything inside the folder you unzipped needs to be uploaded to your webserver … for example, into your `public_html` or `www` or `html` folder (the folder will already exist on your webserver)
-5. In your browser, enter the address to your site, such as: `www.example.com` (or if you uploaded it into another subdirectory such as `foldername` use `www.example.com/foldername`)
-6. Rename the `/includes/dist-configure.php` and `/admin/includes/dist-configure.php` files to "`configure.php`" and make the files writable (so the install process can write your configuration information into them after you answer a few questions in the following steps).
-7. Also make the `/cache` and `/logs` folders writable. (You will be prompted about making other folders writable during installation)
-8. Follow the instructions that appear in your browser for installation. 
+1. [Scarica Zen Cart&reg;](http://sourceforge.net/projects/zencart-italia/files)
+2. Assicurarsi di verificare che l'hash MD5/SHA1 dello Zip corrisponda a quello postato pubblico.
+  * I valori MD5/SHA1 per verificare lo zip di Sourceforge vengono visualizzati in [sito Zen Cart&reg;]  (http://www.zen-cart.it/) insieme alle [istruzioni su come verificare il file utilizzando i valori di hash]  (http://www.zen-cart.com/content.php?305).
+3. Decomprimere il file zip scaricato
+4. Tutto all'interno della cartella decompressa deve essere caricato nel server... 
+   ad esempio in public_html o www o la cartella html (la cartella già presente sul vostro server web)
+5. Nel browser, digitare l'indirizzo del tuo sito, come ad esempio: www.your_site.com (o se hai caricato in un altra cartella www.your_site.com/nomecartella)
+6. Rinominare i file /includes/dist-configure.php e /admin/includes/dist-configure.php in "configure.php" e rendere i file scrivibili (in modo che il processo di installazione possa scriverne le informazioni di configurazione dopo che avrai risposto alle richieste nei vari passaggi).
+7. Rendere anche le cartelle /cache e /logs scrivibili. (Verrà richiesto di rendere le cartelle scrivibili durante l'installazione) 
+8. Seguire le istruzioni visualizzate nel browser per l'installazione. 
 
-If some of the terms used in these brief instructions are things you don't understand, there is a much more detailed set of instructions in the [/docs/Implementation-Guide](http://www.zen-cart.com/docs/implementation-guide-v155.pdf) PDF.
+Questa è la versione abbreviata delle istruzioni di installazione!
 
-
-Guidance for Secure Installations
----------------------------------
-__The [Implementation Guide](http://www.zen-cart.com/docs/implementation-guide-v155.pdf) document is provided to give detailed instructions on how to install and secure your site in accordance with PCI Compliance requirements.__ Whether your site "needs" PCI Compliance or not is up to you to decide, but you should still follow the documented principles to maximize your site's resiliance against troublesome access attempted by any undesired/unauthorized visitors.
+Per istruzioni molto più dettagliata di installazione, vedere il file [/docs/1.readme_installation.html]  (http://www.zen-cart.com/docs/1.readme_installation.html) nel tuoi file Zen Cart.
 
 
-Documentation
+# Procedura aggiornamento versione italiana #
+
+ - - Il metodo per aggiornare uno Zen Cart versione ITA che invitiamo a seguire è - -
+
+1. installare la nuova versione in una cartella "/-NUOVO"
+2. copiare e riportare dati, file di lingua modificati, immagini ecc. fra i due store, "vecchio" e "nuovo".
+3. esportare & importare fra i due database i clienti con indirizzi ed ordini;
+4. proseguire con tutta la parte del catalogo composta da categorie, articoli, attributi ecc;
+5. comparare i due database: sarà semplice vedere cosa c'è e cosa manca da trasferire
+6. verificare i dati / la sincronia fra i due store e testare tutto il nuovo ambiente.
+7. sostituire i due store fra loro modificando dati e percorsi nei due file di configurazione e nel DB
+(per il percorso della cache); Il vecchio spostandone i file entro una cartella /_OLD ed il nuovo
+alzando i file dalla cartella "/-NUOVO" nella root o dove scelto.
+
+**Nota**: per ottenere una perfetta sincronia dei dati dal punto 3 in poi sarà necessario **porre in manutenzione** lo store “vecchio” così da evitare la perdita di registrazioni / ordini, per il tempo necessario a concludere le operazioni dei restanti punti.
+Se nel “vecchio” store sono (stati installati e sono) presenti moduli che hanno aggiunto voci alle tabelle di categoria, articoli ecc. detti moduli (aggiornati all'attuale versione) dovranno essere installati anche nella nuova 1.5 prima del trasferimento dei dati stessi così fra i due database da avere lo stesso numero di campi presenti e non ottenere errori.
+
+*Per aggiornare la versione USA la procedura può essere differente e si rimanda alla documentazione allegata a quella distribuzione. La procedura indicata NON è comunque valida per aggiornamenti fra versioni linguistiche diverse.
+
+Se si sta aggiornando da una versione 1.5, la procedura è terminata. Se invece si sta effettuando l'aggiornamento da una 1.3.x a una 1.5.x, è necessario effettuare un'ulteriore operazione che consiste nell'esecuzione di un file (bugfix) contenente delle query sql per l'allineamento delle zone tra le due serie di versione.
+
+Istruzioni e files per questa operazione si trovano nel pacchetto della distribuzione ufficiale in download su sourceforge. In alternativa i soli files in questione e relative istruzioni, si trovano, sempre su sourceforge, in un archivio zip separato, al seguente indirizzo: http://sourceforge.net/projects/zencart-italia/files/Zen%20Cart%201.5.x/x_aggiornamento-da-13x.zip/download
+
+Esistono due diverse modalità di esecuzione del bugfix, a seconda del fatto che sia avvenuto almeno una nuova registrazione utente in seguito all’aggiornamento dal 1.3.x a 1.5.x oppure no.
+
+Se dopo aver effettuato l’aggiornamento non si è ancora realizzata una nuova registrazione cliente
+allora sarà possibile eseguire il bugfix A, altrimenti si dovrà procedere ed eseguire il bugfix B
+
+Istruzioni per come procedere per l’aggiornamento da 1.3.x a 1.5.x:
+
+bugfix A – da Strumenti > Installa patch SQL > eseguire la query “bugfix_A.sql”
+bugfix B:
+
+- Recuperare ID Cliente dell’ultimo (cliente) registrato nel vecchio negozio 1,3,xx.
+
+3 possibili metodi per recuperare l’ID:
+
+1) se ancora presente ed accessibile, procedere nel pannello di amministrazione della vecchia
+versione e da Clienti > Clienti prendere nota dell’ultimo ID Cliente.
+
+2) aprire il file .sql usato per importare i dati dalla vecchia versione alla nuova e prendere nota
+dell’ultimo ID Cliente (il numero più alto) della tabella address_book nel campo customers_id.
+
+3) accedere al pannello di amministrazione della nuova versione 1.5.x e in Clienti > Clienti
+recuperare l’ ID Cliente dell’ultimo registrato nella vecchia versione andando a verificare che la
+data presente nel campo Account Creato sia precedente alla messa online del nuovo sito.
+
+Una volta recuperato l’ID dell’ultimo cliente registratosi nel vecchio negozio
+
+- Aprire in modifica il file bugfix_B.sql ed inserire tale valore al posto di
+
+ID_ULTIMO_CLIENTE_SITO_VECCHIO
+
+Ad esempio se l’ultimo id cliente è il 1345, la query cambierà da
+update address_book ab set ab.entry_zone_id = (select zc.id_nuovo from zones_confronto zc where
+ab.entry_zone_id = zc.id_vecchio and ab.customers_id <= ID_ULTIMO_CLIENTE_SITO_VECCHIO and
+ab.entry_zone_id != 0 and ab.entry_country_id = 105);
+a
+update address_book ab set ab.entry_zone_id = (select zc.id_nuovo from zones_confronto zc where
+ab.entry_zone_id = zc.id_vecchio and ab.customers_id <= 1345 and ab.entry_zone_id != 0 and
+ab.entry_country_id = 105);
+
+- Salvare il file
+
+- da Strumenti > Installa patch SQL > eseguire la query “bugfix_B.sql”
+
+# PROSSIMI PASSI #
+Per **SICUREZZA** devi cambiare i permessi di scrittura, in sola lettura dei files configure.php posti in /admin/includes/ ed /includes/ prima di aprire il negozio al pubblico! Inoltre sarebbe opportuno rimuovere (invece che rinominare) la cartella /zc_install per evitare tentativi di re-installazione non autorizzati!
+
+Dei segnali di **ATTENZIONE** saranno attivi fino a quando non saranno stati effettuati questi interventi.
+
+## CONFIGURAZIONE ##
+Con questa versione sono inserite nel negozio delle pagine di spiegazione passo passo, in ogni modo ti
+invitiamo a leggere le **FAQ** - Domande Frequenti i **Manuali** e seguire il **Forum** di supporto al fine di configurare prima e predisporre dopo il tuo negozio nella maniera migliore e più veloce. Per domande, chiarimenti e supporto questo è il posto giusto, abbiamo un potente motore di ricerca per termini chiave, utilizzalo! E' molto importante che tu prenda visione della Documentazione posta nella cartella /docs presente nel tuo Sito.
+
+## IMPORTANTE ##
+Lo strumento più potente per la completa gestione e personalizzazione del TUO Sito è il **Developers Tool Kit**, posto nel Pannello di Amministrazione, in Strumenti. Sarà possibile usarlo per cercare quasi qualche cosa che potrà essere adattata o sostituita, in particolare il testo visualizzato sul Sito.
+Per diventare esperti nella modifica o creazione di template, prendete visione di FAQ, articoli e manualistica presente nel Nostro Sito di supporto: [www.zen-cart.it](http://www.zen-cart.it).
+
+## INFINE ##
+In [www.zen-cart.com](http://www.zen-cart.com) oltre a trovare informazioni e supporto nel forum, vi è una sezione denominata Downloads. Al cui interno è posta una categoria 'Documentation', che contiene le ultime versioni di manuali e documentazione in Inglese per conoscere a fondo vari aspetti riguardanti funzionalità ed aspetti gestionali del tuo negozio.
+
+Ulteriori informazioni e dettagli nelle F.A.Q. del Sito [www.zen-cart.it](http://www.zen-cart.com)
+
+> Siamo felici che TU abbia scelto il sistema E-commerce Zen Cart. Ricorda che il Progetto fatto di questa distribuzione, il sito che la mantiene, la documentazione ed il forum di supporto vive grazie alla TUA DONAZIONE
+
+
+PCI/PA-DSS Compliance
+---------------------
+__The [Implementation Guide](http://www.zen-cart.com/docs/implementation-guide-v155.pdf) should be followed for PCI Compliant implementation.__
+
+Documentazione
 -------------
-Use your browser to open the [/docs/index.html](http://www.zen-cart.com/docs/index.html) page for links to documentation and the [Implementation Guide](http://www.zen-cart.com/docs/implementation-guide-v155.pdf).
+Usando il browser apri il file [/docs/index.html](http://www.zen-cart.com/docs/index.html) pagina per i link alla documentazione e la [Guida di implementazione](http://www.zen-cart.com/docs/implementation-guide-v155.pdf).
 
 
-Developer Documentation
------------------------
-Developers wishing to contribute to the Zen Cart&reg; core code may fork the [zencart/zc-v1-series](https://github.com/zencart/zc-v1-series) repository on github and issue Pull Requests from their own feature branches. For detailed help on using github, forking, branching, and contributing see [Contributing to Zen Cart code](http://docs.zen-cart.com/Contributing/).
-
-Visit [docs.zen-cart.com](http://docs.zen-cart.com/Developer_Documentation/v1.5.5/) for v1.5.5-specific guidance on issues relevant to developers. This documentation site is very new, but content will be added over time.
-
-Developers will find the standalone [Habitat VM](http://docs.zen-cart.com/Habitat/main) to be a useful tool for staging site upgrades and doing offline feature development or testing. Designers may like it for testing new templates without affecting the live site.
-
-
-Support
+Supporto
 -------
-For free support, visit our support site: http://www.zen-cart.com/forum.php
+Per assistenza gratuita, visitare il nostro sito di supporto: http://www.zen-cart.com/forum.php o http://www.zen-cart.it/forum/
 
-Follow Us
+
+Seguici 
 ---------
-For news and updates about Zen Cart&reg;, follow us on [Twitter](http://twitter.com/zencart) and [Facebook](http://facebook.com/zencart)
+Per aggiornamenti e notizie Zen Cart&reg;, seguici con [Twitter](http://twitter.com/zencartitalia) e [Facebook](https://www.facebook.com/zencartitalia/)
 
-Sign up for our free [Newsletter](http://eepurl.com/bafnNj)
+Sign up for our free [Newsletter USA](http://eepurl.com/bafnNj)
 
-Subscribe to [Critical News Updates And Release Announcements](http://www.zen-cart.com/subscription.php?do=addsubscription&f=2)
-
+Subscribe to [Critical News Updates And Release Announcements USA](http://www.zen-cart.com/subscription.php?do=addsubscription&f=2)
 
 &nbsp;  
 
 *&copy;Copyright 2003-2016, Zen Cart&reg;. All rights reserved.*
-

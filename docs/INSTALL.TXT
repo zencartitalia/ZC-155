@@ -1,24 +1,27 @@
-Zen Cart(R) - The Art of E-Commerce
+Zen Cart (R) - The Art of E-Commerce 
 
-Welcome to Zen Cart(R) E-Commerce
+Benvenuto in Zen Cart (R) E-Commerce 
 
-THE FOLLOWING IS A VERY SIMPLIFIED INSTALLATION DOCUMENT.
-THE README DOCUMENTS ARE IN THE /docs FOLDER OF THIS DISTRIBUTION.
-THE README DOCUMENTS ARE IN THE /docs FOLDER OF THIS DISTRIBUTION.
+Il seguente è un documento di installazione molto semplificato. 
+SI CONSIGLIA DI USARE LA VERSIONI PDF NELLA CARTELLA docs / con istruzioni più dettagliate. 
 
-You can find online documentation at: http://tutorials.zen-cart.com
-
-
-Zen Cart has a built-in automatic installation system. However to use this you must first unpack and upload the code to a compatible web server:
-
-1. Extract the Zen Cart ZIP file (and tell the unzip utility to *retain* folder structures)
-2. Upload the Zen Cart files and folders to your server using your FTP program
-3. You must make some folders writable. The details are in the /docs/Implementation-Guide.pdf and the HTML-formatted documentation in the /docs/ folder
-4. In your browser enter the URL to your website where you uploaded the files, specifically to the /zc_install/index.php file.
-5. Follow the instructions. You must create your MySQL database credentials before installation, and provide those details when prompted. Details of this are in the Implementation Guide PDF.
-
-For more detailed installation instructions, please see the Implementation Guide PDF in the /docs/ folder of this distribution.
+I DOCUMENTI README SONO IN CARTELLA docs / di questa distribuzione. 
 
 
+Potete trovare la documentazione online all'indirizzo: http://tutorials.zen-cart.com 
 
-( (c)Copyright 2003-2016, Zen Cart(R). All rights reserved.)
+
+Zen Cart ha un sistema di installazione automatico incorporato. 
+Tuttavia, per utilizzare questo è necessario prima decomprimere e caricare il codice a un server web compatibile: 
+
+1. Estrarre il file ZIP Zen Cart (e dire al programma di decompressione per * mantenere * la struttura delle cartelle) 
+2. Caricare i file e le cartelle di Zen Cart nel server utilizzando il vostro programma FTP 
+3. È necessario che alcune cartelle siano scrivibili. I dettagli sono nella documentazione in formato HTML in /docs/ 
+4. Nel browser immettere l'URL al tuo sito web dove hai caricato i file, in particolare per il file /zc_install/index.php. 
+5. Seguire le istruzioni. È necessario creare ed avere le credenziali del database MySQL prima dell'installazione, ed utilizzarne i valori quando richiesto.
+
+
+Per le istruzioni di installazione più dettagliate, consultare il documento /docs/1.readme_installation.html in questa distribuzione. 
+
+
+((c) Copyright 2003-2016, Zen Cart (R). Tutti i diritti riservati.)
