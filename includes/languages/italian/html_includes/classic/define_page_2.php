@@ -1,27 +1,22 @@
 <h2>PROCEDURE PER UNA PRIMA CONFIGURAZIONE</h2><br />
-Una volta terminata l'installazione di Zen Cart,<ol>
-	<li>rimossa la cartella di installazione,<br /></li>
-	<li>rinominata la cartella <strong>/admin</strong> in /quello-che-vuoi<br /></li>
-	<li>e dopo aver correttamente settato i permessi dei 2 file configure.php, senza quindi pi&ugrave; messaggi di errore,<br /></li></ol>
-sar&agrave; possibile iniziare a personalizzare lo store. Non &egrave; assolutamente difficile, anzi una volta compreso il funzionamento del sistema e capito "cosa" modificare "dove" e "come" il tutto risulter&agrave;, speriamo anche divertente.<br />
+Una volta terminata l'installazione di Zen Cart, rimossa la cartella di installazione, rinominata la cartella <strong>/admin</strong> in /quello-che-vuoi e dopo aver correttamente settato i permessi dei 2 file configure.php, senza perci&ograve; pi&ugrave; messaggi di errore, sar&agrave; possibile iniziare a personalizzare lo store, sia da pannello che via FTP. &Egrave; semplice, carta e penna per gli appunti e la scaletta delle modifiche e una volta compreso il funzionamento del sistema e capito "cosa" modificare "dove" e "come" il tutto risulter&agrave; divertente e speriamo anche "creativo".<br />
 <br />
-<h3 align="center">Buona continuazione con Zen Cart!</h3>
+<h3 align="center">Buona continuazione con il tuo Zen Cart!</h3>
 <br />
-Il consiglio &egrave; di cominciare subito accedendo al pannello di amministrazione per familiarizzare con il contenuto; iniziare da <b>Configurazione</b> "Info Negozio" dove controllare quanto inserito ed aggiungere  i dati mancanti come il numero per assistenza clienti ed i dati fiscali obbligatori. &Egrave; inoltre importante verificare la programmazione cos&igrave; da settare tutto l'insieme secondo le proprie specifiche esigenze, il mercato di riferimento ecc... (in dettaglio a pag. 4)<br /><br />
+Il consiglio &egrave; di cominciare subito accedendo al pannello di amministrazione per familiarizzare con il contenuto; iniziare da <b>Configurazione</b> "Info Negozio" dove controllare quanto inserito ed aggiungere  i dati mancanti come il numero per assistenza clienti ed i dati fiscali obbligatori come la partita iva al fondo pagina. &Egrave; inoltre importante verificare la programmazione cos&igrave; da settare tutto l'insieme secondo le proprie specifiche esigenze, il mercato di riferimento ecc... (vedi a pag. 4)<br /><br />
 
-<h4 class="productSpecialPrice" style="padding: 0pt 90px;">&Egrave; fondamentale in questa fase investire il tempo necessario alla scoperta di ogni singola voce e dei parametri presenti nei vari men&ugrave;.</h4>
+<h4 class="productSpecialPrice" style="padding: 0pt 65px;">&Egrave; fondamentale in questa fase investire il tempo necessario alla scoperta di ogni singola voce e dei parametri presenti nei men&ugrave; del tuo e-commerce!</h4>
 
 <br />
-Per avere un minimo supporto sotto mano &egrave; opportuno salvare o stampare queste tre pagine; ideale sarebbe per&ograve; l'acquisto del manuale di Zen Cart che spiega tutto il pannello nel dettaglio, voce per voce e come ottenere il massimo della resa da questo potente e flessibile sistema.
-<br /><br />
-Decidendo di modificare file di codice.php o degli idiomi direttamente dai sorgenti Zen Cart, questi potrebbero essere sovrascritti nell'affrontare un aggiornamento con il rischio di perdere tutte le modifiche apportate, per ovviare a questo possibile incidente, Zen Cart offre il sistema denominato <strong>Over-Ride</strong> che permette di evitare sovrascritture accidentali storando i file in determinate aree. Usare questa funzionalit&agrave; significa partire con il piede giusto. 
+Decidendo di modificare file di codice.php o degli idiomi direttamente dai sorgenti Zen Cart, questi potrebbero essere sovrascritti nell'affrontare un aggiornamento con il rischio di perdere tutte le modifiche apportate, per ovviare a questo possibile incoveniente, Zen Cart offre il sistema denominato <strong>Over-Ride</strong> che permette di evitare sovrascritture accidentali storando i file in determinate aree. Comprendere e utilizzare questa funzionalit&agrave; significa partire con il piede giusto. 
 <br /><br />
 Il sistema Over-Ride <strong>deve essere utilizzato</strong> per i file del template, per i blocchi laterali, per i contenuti testuali delle pagine statiche (come queste), per i nomi di pagine e bottoni ed anche per le tabelle del database e delle specifiche funzioni eventualmente implementate.<br /><br />
-Insomma per tutte le modifiche apportate al design o alle funzionalit&agrave; o alla struttura del <strong>proprio negozio</strong> online.
+Insomma per tutte le modifiche apportate al design o alle funzionalit&agrave; o alla struttura del <strong>proprio negozio</strong> online.<br /><b>Consiglio</b>: &egrave; possibile lasciare il file originale insieme a quello modificato ma deve essere sempre rinominato omettendo .php cos&igrave; da non essere mai interpretato dal sistema.
 <br /><br />
-Se volete, per esempio, creare un nuovo template (o caricarne uno acquistato), &egrave; necessario identificare <strong>TUTTE</strong> le cartelle che hanno il nome <strong>Classic</strong> e rinominarle con il nome del template che si utilizzer&agrave; (NB: sia che lo si crei modificando l'esistente classic o che sia stato acquistato!).<br /><br />
+Se volete, per esempio, creare un nuovo template (o caricarne uno acquistato), &egrave; necessario identificare <strong>TUTTE</strong> le cartelle che hanno il nome <strong>classic</strong> o <strong>responsive_classic</strong> (dalla 1.5.5a) e rinominarle con il nome del template che si utilizzer&agrave;.<br />NB: questa pratica va attuata sia che lo si crei un nuovo template modificando l'esistente template della distribuzione o sia che il template sia stato acquistato: verifica e controllo dei file!
+<br /><br />
 Di seguito utilizzeremo il nome <strong>[tuo_template]</strong> solo a titolo di esempio e per convenzione.<br /><br />
-<h4 align="center">Ecco dove trovare via FTP le cartelle Classic:</h4>
+<h4 align="center">Ecco dove trovare via FTP le cartelle classic / responsive_classic:</h4>
 <ul style="list-style: square outside none; padding: 4px 50px;" id="welcometext">
 <li>/includes/languages</li><li>
 /includes/languages/english</li><li>
@@ -40,23 +35,23 @@ Di seguito utilizzeremo il nome <strong>[tuo_template]</strong> solo a titolo di
 /includes/modules/sideboxes</li><li>
 /includes/templates</li></ul>
 <br />
-Per modificare il template - da quello originale <strong>classic</strong> - copiate e rinominate la cartella in <strong>tuo_template</strong>:<br />
+Per modificare il template - da quello originale <strong>classic</strong> o <strong>responsive_classic</strong> - copiate e rinominate la cartella in <strong>tuo_template</strong>:<br />
 in /includes/templates/tuo_template, aprire il file <strong>template_info.php</strong><br />e ricompilare a piacimento i campi, ricordando di salvare logo o immagini nella cartella del nuovo template in uso:<br />
 /includes/templates/tuo_template/images.<br />
-<br />Struttura del file <strong>template_info.php</strong><br />
+<br />Struttura del file <strong>template_info.php</strong> del nuovo template <strong>responsive_classic</strong><br />
 <div style="padding: 8px;" id="welcometext">
-$template_name = 'New Italian Classic "Stylissimo"';<br />
-$template_version = 'Version 1.5.3 - 1';<br />
-$template_author = 'Zen Cart Italia Team (c) 28.07.2014'';<br />
-$template_description = 'Template realizzato dal team di ZEN CART ITALIA per la nuova versione Zen Cart 1.5.x Risulta agevolmente personalizzabile per colori e immagini che lo compongono agendo nei file CSS e nella cartella images.';<br />
-$template_screenshot = 'scr_template_default.jpg';<br />
+$template_name = 'Responsive Classic Template';<br />
+$template_version = 'Version 1.0';<br />
+$template_author = 'Anne, www.picaflor-azul.com (c) 2015';<br />
+$template_description = 'This HTML5 template is mobile friendly and uses contemporary Responsive CSS to allow sharing of a single template across multiple device types.  It uses PHP Mobile Detect to serve up the optimized layout based on device. It allows the designer to implement device-specific php, jquery, javascript or ajax.';<br />
+$template_screenshot = 'scr_responsive_classic.jpg';<br />
 </div>
 <br /><br />
-NB: $template_name "New Italian Classic "Stylissimo" nome da cambiare con "Nome del Tuo Template" in modo da identificarlo nell'elenco in gestione template!<br /><br />
+NB: $template_name "Responsive Classic Template" nome da cambiare con "Nome del Tuo Template" in modo da identificarlo nell'elenco in gestione template!<br /><br />
 
-<h4 align="center">Personalizzare i collegamenti "Social" del Footer:</h4>
+<h4 align="center">Personalizzare i collegamenti "Social" del Footer del tempate <strong>classic</strong>:</h4>
 
-Per poter cambiare i collegamenti "Social" presenti nel footer o piede di tutte le pagine del sito, si deve accedere via FTP per agire nel file <strong>tpl_footer.php</strong> in:
+Per poter cambiare i collegamenti "Social" presenti nel footer o piede di tutte le pagine del sito, solo per il template <strong>classic</strong>si deve accedere via FTP per agire nel file <strong>tpl_footer.php</strong> in:
 <ul style="padding: 4px 12px;" id="welcometext">
 	<li>/includes/templates/classic/common/</li>
 </ul>

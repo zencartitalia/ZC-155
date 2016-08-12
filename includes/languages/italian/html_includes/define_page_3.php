@@ -3,7 +3,7 @@ Vi sono delle parti dei testi che NON sono modificabili nel Pannello di Amminist
 <br />
 * Si consiglia di predisporre nel proprio PC due cartelle atte a contenere in una il file originale scaricato via FTP e nell'altra la copia modificata e quindi ricaricata a sostituzione del primo file originariamente scaricato.
 <br /><br />
-Per effettuare le modiche nell'header (intestazione o fascia superiore) del negozio, come gli ALT TAG del logo, la scritta <strong>Qui il tuo slogan!</strong>, dimensioni dell'area link del logo o lapossibilit&agrave; di utilizzare un'immagine tipo mio-marchio.png, aprire il file <strong>header.php</strong> che si trova in ogni cartella idioma, quindi nelle attuali cartelle Classic (ev. rinominate in "tuo_template" o altro...):
+Per effettuare le modiche nell'header (intestazione o fascia superiore) del negozio, come gli ALT TAG del logo, la scritta <strong>Qui il tuo slogan!</strong>, dimensioni dell'area link del logo o lapossibilit&agrave; di utilizzare un'immagine tipo mio-marchio.png, aprire il file <strong>header.php</strong> che si trova in ogni cartella idioma, quindi nelle attuali cartelle <strong>classic</strong> o <strong>responsive_classic</strong> ev. rinominate in "tuo_template" o altro...:
 <ul style="padding: 4px 12px;" id="welcometext">
 	<li>/includes/languages/italian/tuo_template </li>
 	<li>/includes/languages/english/tuo_template </li></ul>

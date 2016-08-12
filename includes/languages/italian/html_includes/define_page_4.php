@@ -3,13 +3,13 @@
 Con l'installazione sono stati inseriti i dati fondamentali (nome e recapiti) si deve preparare il negozio alla piena operativit&agrave;.<br />
 Le operazioni ora si effettuano dal <b>Pannello di Amministrazione</b>, la situazione:<br />
 - localizzazione per idioma italiano &egrave; ok!<br /> 
-- tasse: IVA 21% inserita di default,<br />&egrave; possibile aggiungere ulteriori aliquote
+- tasse: IVA 22% inserita di default,<br />&egrave; possibile aggiungere ulteriori aliquote
 <br />Di seguito cosa fare passo passo:<br /><br />
 <b>Pannello di Amministrazione > Configurazione > Il mio negozio</b><br />
 - Telefono - Servizio Clienti: inserire ...<br />
 - Dati fiscali del Negozio: inserire i dati per il footer negozio, come Partita IVA e per srl/spa il capitale sociale I.V.<br />
-- Calcolo Tasse Prodotti basato su: la scelta &egrave; fra Shopping (consigliata per l'Italia), Billing (in riferimento all'indirizzo del cliente) e Store (in riferimento alla localizzazione del negozio).<br />
-- Calcolo Tasse Spedizione basato su: la scelta anche qui &egrave; fra Shopping (consigliata), Billing e Store.<br />
+- Calcolo Tasse Prodotti basato su: la scelta &egrave; fra Shipping (consigliata per l'Italia), Billing (in riferimento all'indirizzo del cliente) e Store (in riferimento alla localizzazione del negozio).<br />
+- Calcolo Tasse Spedizione basato su: la scelta anche qui &egrave; fra Shipping (consigliata), Billing e Store.<br />
 <br />
 <b>Pannello di Amministrazione > Configurazione > Immagini</b><br />
 - controllare che le dimensioni delle immagini siano adeguate alle esigenze di impaginazione del negozio, predisporre immagini con il medesimo rapporto altezza / larghezza ed ottimizzarle per il web.<br />NO immagini brutte, mal dimensionate e pesanti !!!<br />
@@ -50,11 +50,6 @@ Per questo come per ulteriori informazioni relative alla struttura, utilizzo e g
 <hr /><div id="welcometext"><br />
 <h2 align="center">Hai gradito questa spiegazione?</h2><br />
 <h3 align="center">
-<a href="http://www.zen-cart.it/manuale-operativo-zen-cart/" target="_blank"><u>Acquista il Manuale Operativo di Zen Cart</u><br />
-<br />
-<img src="images/banners/manuale_zen.gif" alt="Manuale Zen Cart Italia" title=" Manuale Zen Cart Italia " height="60" width="480">
-
-
-</a></h3>
+<a href="http://sourceforge.net/donate/index.php?group_id=180704" target="_blank"><u>Fai una donazione al progetto</u></a></h3>
 <br /></div>
 <hr /><h3>Pagina 3 di 3 - <a href="index.php?main_page=page_2">Torna all'inizio</a></h3><hr />
