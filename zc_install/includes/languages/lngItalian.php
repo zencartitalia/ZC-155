@@ -12,7 +12,7 @@
 define('META_TAG_TITLE', 'Zen Cart® Installer');
 define('HTML_PARAMS','dir="ltr" lang="it"');
 define('ZC_VERSION_STRING', '%s v%s');
-define('TEXT_PAGE_HEADING_INDEX', 'Ispezione del Sistema');
+define('TEXT_PAGE_HEADING_INDEX', 'Ispezione Sistema');
 define('TEXT_INDEX_FATAL_ERRORS', 'Alcuni problemi devono essere risolti prima di continuare');
 define('TEXT_INDEX_WARN_ERRORS', 'Alcuni altri problemi');
 define('TEXT_HEADER_MAIN', 'SUGGERIMENTO: I titoli dei campi sono link di aiuto cliccabili e spiegano il significato ogni campo.');
@@ -20,7 +20,7 @@ define('TEXT_INDEX_HEADER_MAIN', 'SUGGERIMENTO: Per alcuni errori e avvisi sotto
 define('TEXT_INSTALLER_CHOOSE_LANGUAGE', 'Scegli lingua');
 define('TEXT_HELP_CONTENT_CHOOSE_LANG', 'Zen Cart® è multilingue, supporta tante lingue quanti sono i pacchetti di lingua disponibili È sufficiente installare il pacchetto di lingua necessaria e l\'intero negozio potrà operare in più lingue, iniziando dal programma di installazione');
 
-define('TEXT_PAGE_HEADING_SYSTEM_SETUP', 'Setup del Sistema');
+define('TEXT_PAGE_HEADING_SYSTEM_SETUP', 'Setup Sistema');
 define('TEXT_SYSTEM_SETUP_ADMIN_SETTINGS', 'Settaggi Amministrazione');
 define('TEXT_SYSTEM_SETUP_CATALOG_SETTINGS', 'Settaggi Catalogo (parte pubblica)');
 define('TEXT_SYSTEM_SETUP_ADMIN_SERVER_DOMAIN', 'Dominio Server Amministrazione');
@@ -100,7 +100,7 @@ define('TEXT_COMPLETION_INSTALL_COMPLETE', 'L\'installazione è completata.');
 define('TEXT_COMPLETION_INSTALL_LINKS_BELOW', 'È possibile accedere al tuo store e all\'area di amministrazione usando i link qui sotto.');
 define('TEXT_COMPLETION_UPGRADE_COMPLETE', 'Congratulazioni, l\'aggiornamento è ora completo.');
 define('TEXT_COMPLETION_ADMIN_DIRECTORY_WARNING', 'Non è possibile modificare l\'indirizzo del pannello di amministrazione in automatico. Ti sarà necessario modificarlo prima di poter accedere nel pannello di amministrazione.');
-define('TEXT_COMPLETION_INSTALLATION_DIRECTORY_WARNING', "È necessario rimuovere la cartella /zc_install/ in modo che nessuno possa re-installare nuovamente e danneggiare il database! Verrà visualizzato un messaggio e non sarai in grado di accedere all\'amministrazione sino a quando la cartella non sia stata rimossa.");
+define('TEXT_COMPLETION_INSTALLATION_DIRECTORY_WARNING', "È necessario rimuovere subito la cartella /zc_install/ in modo che nessuno possa re-installare nuovamente e danneggiare il database!<br />Inoltre verrà visualizzato un messaggio e non sarai in grado di accedere all'amministrazione sino a quando la cartella non sia stata rimossa!");
 
 define('TEXT_COMPLETION_CATALOG_LINK_TEXT', 'Il tuo store');
 define('TEXT_COMPLETION_ADMIN_LINK_TEXT', 'La tua amministrazione');
@@ -131,8 +131,8 @@ define ('TEXT_UPGRADE', 'Aggiorna...');
 define ('TEXT_CLEAN_INSTALL', 'Installazione pulita');
 define ('TEXT_UPDATE_CONFIGURE', 'Aggiorna file di configurazione');
 
-define('TEXT_NAVBAR_SYSTEM_INSPECTION', 'Ispezione del Sistema');
-define('TEXT_NAVBAR_SYSTEM_SETUP', 'Set-up del Sistema');
+define('TEXT_NAVBAR_SYSTEM_INSPECTION', 'Ispezione Sistema');
+define('TEXT_NAVBAR_SYSTEM_SETUP', 'Set-up Sistema');
 define('TEXT_NAVBAR_DATABASE_UPGRADE', 'Aggiornamento Database');
 define('TEXT_NAVBAR_DATABASE_SETUP', 'Set-up Database');
 define('TEXT_NAVBAR_ADMIN_SETUP', 'Set-up Amministrazione');
