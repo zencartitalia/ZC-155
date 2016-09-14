@@ -24,12 +24,12 @@ define('TEXT_PAGE_HEADING_SYSTEM_SETUP', 'Setup Sistema');
 define('TEXT_SYSTEM_SETUP_ADMIN_SETTINGS', 'Settaggi Amministrazione');
 define('TEXT_SYSTEM_SETUP_CATALOG_SETTINGS', 'Settaggi Catalogo (parte pubblica)');
 define('TEXT_SYSTEM_SETUP_ADMIN_SERVER_DOMAIN', 'Dominio Server Amministrazione');
-define('TEXT_SYSTEM_SETUP_ADMIN_SERVER_URL', 'Domino Server Amministrazione');
+define('TEXT_SYSTEM_SETUP_ADMIN_SERVER_URL', 'Dominio Server Amministrazione');
 define('TEXT_SYSTEM_SETUP_ADMIN_PHYSICAL_PATH', 'Percorso fisico Amministrazione');
 define('TEXT_SYSTEM_SETUP_CATALOG_ENABLE_SSL', 'Attiva SSL per la parte pubblica?');
 define('TEXT_SYSTEM_SETUP_CATALOG_HTTP_SERVER_DOMAIN', 'Domino HTTP della parte pubblica');
-define('TEXT_SYSTEM_SETUP_CATALOG_HTTP_URL', 'URL HTTPS della parte pubblica');
-define('TEXT_SYSTEM_SETUP_CATALOG_HTTPS_SERVER_DOMAIN', 'Domino HTTPS della parte pubblica');
+define('TEXT_SYSTEM_SETUP_CATALOG_HTTP_URL', 'URL HTTP della parte pubblica');
+define('TEXT_SYSTEM_SETUP_CATALOG_HTTPS_SERVER_DOMAIN', 'Dominio HTTPS della parte pubblica');
 define('TEXT_SYSTEM_SETUP_CATALOG_HTTPS_URL', 'URL HTTPS della parte pubblica');
 define('TEXT_SYSTEM_SETUP_CATALOG_PHYSICAL_PATH', 'Percorso fisico parte pubblica');
 define('TEXT_SYSTEM_SETUP_AGREE_LICENSE', 'Accetto i termini della licenza: ');
@@ -41,7 +41,7 @@ define('TEXT_SYSTEM_SETUP_ERROR_CATALOG_PHYSICAL_PATH', 'Pare vi sia un problema
 
 define('TEXT_PAGE_HEADING_DATABASE', 'Database Setup');
 define('TEXT_DATABASE_HEADER_MAIN', 'NOTE: NOTA: È necessario creare il database ed il corrispondente utente database MySQL e concedere le autorizzazioni per l\'utente, prima di procedere in questa pagina. Clicca il titolo nella colonna di sinistra per una spiegazione di ogni singola voce supporto.');
-define('TEXT_DATABASE_SETUP_SETTINGS', 'Basic Settaggi');
+define('TEXT_DATABASE_SETUP_SETTINGS', 'Impostazione di base');
 define('TEXT_DATABASE_SETUP_DB_HOST', 'Database Host: ');
 define('TEXT_DATABASE_SETUP_DB_USER', 'Database Utente: ');
 define('TEXT_DATABASE_SETUP_DB_PASSWORD', 'Database Password: ');
