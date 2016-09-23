@@ -27,7 +27,7 @@ define('TEXT_SYSTEM_SETUP_ADMIN_SERVER_DOMAIN', 'Dominio Server Amministrazione'
 define('TEXT_SYSTEM_SETUP_ADMIN_SERVER_URL', 'Dominio Server Amministrazione');
 define('TEXT_SYSTEM_SETUP_ADMIN_PHYSICAL_PATH', 'Percorso fisico Amministrazione');
 define('TEXT_SYSTEM_SETUP_CATALOG_ENABLE_SSL', 'Attiva SSL per la parte pubblica?');
-define('TEXT_SYSTEM_SETUP_CATALOG_HTTP_SERVER_DOMAIN', 'Domino HTTP della parte pubblica');
+define('TEXT_SYSTEM_SETUP_CATALOG_HTTP_SERVER_DOMAIN', 'Dominio HTTP della parte pubblica');
 define('TEXT_SYSTEM_SETUP_CATALOG_HTTP_URL', 'URL HTTP della parte pubblica');
 define('TEXT_SYSTEM_SETUP_CATALOG_HTTPS_SERVER_DOMAIN', 'Dominio HTTPS della parte pubblica');
 define('TEXT_SYSTEM_SETUP_CATALOG_HTTPS_URL', 'URL HTTPS della parte pubblica');
