@@ -49,9 +49,9 @@ $template_screenshot = 'scr_responsive_classic.jpg';<br />
 <br /><br />
 NB: $template_name "Responsive Classic Template" nome da cambiare con "Nome del Tuo Template" in modo da identificarlo nell'elenco in gestione template!<br /><br />
 
-<h4 align="center">Personalizzare i collegamenti "Social" del Footer del tempate <strong>classic</strong>:</h4>
+<h4 align="center">Personalizzare i collegamenti "Social" del Footer del template <strong>classic</strong>:</h4>
 
-Per poter cambiare i collegamenti "Social" presenti nel footer o piede di tutte le pagine del sito, solo per il template <strong>classic</strong>si deve accedere via FTP per agire nel file <strong>tpl_footer.php</strong> in:
+Per poter cambiare i collegamenti "Social" presenti nel footer o piede di tutte le pagine del sito, SOLO per il template <strong>classic</strong> si deve accedere via FTP per agire nel file <strong>tpl_footer.php</strong> presente in:
 <ul style="padding: 4px 12px;" id="welcometext">
 	<li>/includes/templates/classic/common/</li>
 </ul>

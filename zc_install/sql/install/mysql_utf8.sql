@@ -506,7 +506,7 @@ INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL,
 INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'GR','Grosseto');
 INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'IM','Imperia');
 INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'IS','Isernia');
-INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'AQ','Aquila');
+INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'AQ','L Aquila');
 INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'SP','La Spezia');
 INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'LT','Latina');
 INSERT INTO zones (zone_id, zone_country_id, zone_code, zone_name) VALUES (NULL, 105,'LE','Lecce');
