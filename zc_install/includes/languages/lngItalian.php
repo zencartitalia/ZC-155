@@ -162,7 +162,7 @@ define('TEXT_ERROR_MEDIA_FOLDER', '/media/ cartella senza permessi di scrittura'
 define('TEXT_ERROR_PUB_FOLDER', DIR_FS_DOWNLOAD_PUBLIC . ' cartella senza permessi di scrittura');
 
 define('TEXT_ERROR_CONFIGURE_REQUIRES_UPDATE', 'Il file configure.php è di una vecchia versione e richiede l\'aggiornamento prima di poter continuare.');
-define('TEXT_ERROR_HTACCESS_SUPPORT', 'Problemi con il file .htaccess (non è correttamente settato per negare l\'accesso ai file che dovrebbero essere nascosti).');
+define('TEXT_ERROR_HTACCESS_SUPPORT', 'Problemi con il file .htaccess (non è correttamente settato per negare l\'accesso ai file che dovrebbero essere nascosti). [NOTE: Se si utilizza Nginx, un insieme di file conf nginx è fornita alla FINE di zc_install per consentire una facile rettifica di questa ambiente.]');
 define('TEXT_ERROR_SESSION_SUPPORT', 'Problemi con il gestore di sessione');
 define('TEXT_ERROR_SESSION_SUPPORT_USE_TRANS_SID', 'ini settaggio session.use_trans_sid è abilitato');
 define('TEXT_ERROR_SESSION_SUPPORT_AUTO_START', 'ini settaggio session.auto_start è abilitato');

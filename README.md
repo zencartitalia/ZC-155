@@ -3,14 +3,14 @@ Zen Cart&reg; - L'arte dell'e-commerce
 
 Zen Cart&reg; è stata la prima applicazione web Open Source ad essere completamente certificata PA-DSS.
 
-La versione 1.5.5 prosegue la tradizione ed è un aggiornamto risolutivo per diversi bugfix che correggono la PA-DSS Certified version 1.5.4. 
+La versione 1.5.5e prosegue la tradizione ed è un aggiornamto risolutivo per diversi bugfix che correggono la PA-DSS Certified version 1.5.4. 
 
 Zen Cart&reg; è un software gratuito con supporto gratuito disponibile 24/7 da una community Zen-Cart® nel forum di supporto del sito a <http://www.zen-cart.it/forum/>
 
 --------------------
 
 
-Zen Cart&reg; v1.5.5
+Zen Cart&reg; v1.5.5.e
 --------------------
 
 Compatibilità
@@ -113,5 +113,5 @@ Per supportare e contribuire il Progetto Zen-Cart
 
 &nbsp;  
 
-*&copy;Copyright 2003-2016, Zen Cart&reg;. All rights reserved.*
+*&copy;Copyright 2003-2017, Zen Cart&reg;. All rights reserved.*
 

@@ -446,6 +446,7 @@ define('ERROR_DESTINATION_DOES_NOT_EXIST', 'Errore: destinazione sconosciuta');
 define('ERROR_DESTINATION_NOT_WRITEABLE', 'Errore: destinazione non scrivibile %s');
 define('ERROR_FILE_NOT_SAVED', 'Errore: file non salvato.');
 define('ERROR_FILETYPE_NOT_ALLOWED', 'Errore: tipo di file non consentito  %s');
+define('ERROR_FILE_TOO_BIG', 'Attenzione: File pi&ugrave; pesante del consentito. Vedi impostazione in configurazione immagini.');
 define('SUCCESS_FILE_SAVED_SUCCESSFULLY', 'Fatto: file salvato regolarmente %s');
 define('WARNING_NO_FILE_UPLOADED', 'Attenzione: file non salvato.');
 define('WARNING_FILE_UPLOADS_DISABLED', 'Attenzione: funzione di download inattiva nel file di configurazione php.ini.');

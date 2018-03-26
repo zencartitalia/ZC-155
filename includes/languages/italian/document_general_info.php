@@ -10,7 +10,7 @@
 define('TEXT_PRODUCT_NOT_FOUND', 'Spiacenti, pagina non trovata.');
 define('TEXT_CURRENT_REVIEWS', 'Commenti recenti:');
 define('TEXT_MORE_INFORMATION', 'Ulteriori informazioni consultando questa <a href="%s" target="_blank">pagina</a>.');
-define('TEXT_DATE_ADDED', 'Prodotto inserito a catalogo %s.');
+define('TEXT_DATE_ADDED', 'Prodotto a catalogo dal %s.');
 define('TEXT_DATE_AVAILABLE', '<font color="#ff0000">Questo prodotto sar&agrave; disponibile il %s.</font>');
 define('TEXT_ALSO_PURCHASED_PRODUCTS', '&Egrave; interessante? Vedi anche ...');
 define('TEXT_PRODUCT_OPTIONS', '<strong>Scegli:</strong>');

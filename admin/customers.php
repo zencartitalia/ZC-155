@@ -1,11 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2016 Zen Wired Development Team - www.zenwired.com
  * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Author: Paolo De Dionigi aka Spike00 2016-06-03 Modified in v1.5.5 $
+ * @version $Id: Author: zcwilt  Fri Apr 15 Modified in v1.5.5 $
  */
 
   require('includes/application_top.php');
@@ -125,37 +124,7 @@
         $entry_city = zen_db_prepare_input($_POST['entry_city']);
         $entry_country_id = zen_db_prepare_input($_POST['entry_country_id']);
 
-
-// P.IVA + CF - start
-        $entry_vat = zen_db_prepare_input($_POST['entry_vat']);
-        $entry_cf = zen_db_prepare_input($_POST['entry_cf']);
-        
-        if (ACCOUNT_VAT == 'true') {
-          if (strlen($entry_vat) < ENTRY_VAT_MIN_LENGTH) {
-            $error = true;
-            $entry_vat_error = true;
-          } else {
-            $entry_vat_error = false;
-          }
-        }
-        else {
-          $entry_vat_error = false;
-        }
-
-        if (ACCOUNT_CF == 'true') {
-          if (strlen($entry_cf) < ENTRY_CF_MIN_LENGTH) {
-            $error = true;
-            $entry_cf_error = true;
-          } else {
-            $entry_cf_error = false;
-          }
-        }
-        else {
-          $entry_cf_error = false;
-        }
-  // P.IVA + CF - end
-
-
+        $entry_company = zen_db_prepare_input($_POST['entry_company']);
         $entry_state = zen_db_prepare_input($_POST['entry_state']);
         if (isset($_POST['entry_zone_id'])) $entry_zone_id = zen_db_prepare_input($_POST['entry_zone_id']);
 
@@ -313,10 +282,6 @@
         );
 
         if (ACCOUNT_COMPANY == 'true') $sql_data_array[] = array('fieldName'=>'entry_company', 'value'=>$entry_company, 'type'=>'stringIgnoreNull');
-// P.IVA + CF - start
-        if (ACCOUNT_VAT == 'true') $sql_data_array[] = array('fieldName'=>'entry_vat', 'value'=>$entry_vat, 'type'=>'stringIgnoreNull');
-        if (ACCOUNT_CF == 'true') $sql_data_array[] = array('fieldName'=>'entry_cf', 'value'=>$entry_cf, 'type'=>'stringIgnoreNull');
-// P.IVA + CF - end 
         if (ACCOUNT_SUBURB == 'true') $sql_data_array[] = array('fieldName'=>'entry_suburb', 'value'=>$entry_suburb, 'type'=>'stringIgnoreNull');
 
         if (ACCOUNT_STATE == 'true') {
@@ -435,14 +400,13 @@
 
         $db->Execute("delete from " . TABLE_WHOS_ONLINE . "
                       where customer_id = '" . (int)$customers_id . "'");
-        $db->Execute("delete from " . TABLE_PRODUCTS_NOTIFICATIONS . " where customers_id = " . $customer_id);
-        
+
+    	$db->Execute("delete from " . TABLE_PRODUCTS_NOTIFICATIONS . " where customers_id = " . (int)$customers_id);
+
         zen_record_admin_activity('Customer with customer ID ' . (int)$customers_id . ' deleted.', 'warning');
         zen_redirect(zen_href_link(FILENAME_CUSTOMERS, zen_get_all_get_params(array('cID', 'action')), 'NONSSL'));
         break;
       default:
-// P.IVA + CF - start
-  /*
         $customers = $db->Execute("select c.customers_id, c.customers_gender, c.customers_firstname,
                                           c.customers_lastname, c.customers_dob, c.customers_email_address,
                                           a.entry_company, a.entry_street_address, a.entry_suburb,
@@ -455,20 +419,7 @@
                                   on c.customers_default_address_id = a.address_book_id
                                   where a.customers_id = c.customers_id
                                   and c.customers_id = '" . (int)$customers_id . "'");
-*/
-        $customers = $db->Execute("select c.customers_id, c.customers_gender, c.customers_firstname,
-                                          c.customers_lastname, c.customers_dob, c.customers_email_address,
-                                          a.entry_company, a.entry_vat, a.entry_cf, a.entry_street_address, a.entry_suburb,
-                                          a.entry_postcode, a.entry_city, a.entry_state, a.entry_zone_id,
-                                          a.entry_country_id, c.customers_telephone, c.customers_fax,
-                                          c.customers_newsletter, c.customers_default_address_id,
-                                          c.customers_email_format, c.customers_group_pricing,
-                                          c.customers_authorization, c.customers_referral
-                                  from " . TABLE_CUSTOMERS . " c left join " . TABLE_ADDRESS_BOOK . " a
-                                  on c.customers_default_address_id = a.address_book_id
-                                  where a.customers_id = c.customers_id
-                                  and c.customers_id = '" . (int)$customers_id . "'");
-// P.IVA + CF - end
+
         $cInfo = new objectInfo($customers->fields);
     }
   }
@@ -494,11 +445,6 @@ function check_form() {
   var customers_firstname = document.customers.customers_firstname.value;
   var customers_lastname = document.customers.customers_lastname.value;
 <?php if (ACCOUNT_COMPANY == 'true') echo 'var entry_company = document.customers.entry_company.value;' . "\n"; ?>
-<?php // P.IVA + CF - start
-  if (ACCOUNT_VAT == 'true') echo 'var entry_vat = document.customers.entry_vat.value;' . "\n"; 
-  if (ACCOUNT_CF == 'true') echo 'var entry_cf = document.customers.entry_cf.value;' . "\n"; 
-  // P.IVA + CF - end
-?>
 <?php if (ACCOUNT_DOB == 'true') echo 'var customers_dob = document.customers.customers_dob.value;' . "\n"; ?>
   var customers_email_address = document.customers.customers_email_address.value;
   var entry_street_address = document.customers.entry_street_address.value;
@@ -529,24 +475,8 @@ function check_form() {
     error_message = error_message + "<?php echo JS_DOB; ?>";
     error = 1;
   }
-<?php } 
+<?php } ?>
 
-// P.IVA + CF - start
-  if (ACCOUNT_VAT == 'true') { ?>
-  if (entry_vat.length < <?php echo ENTRY_VAT_MIN_LENGTH; ?>) {
-    error_message = error_message + "<?php echo JS_VAT; ?>";
-    error = 1;
-  }
-<?php } 
-
-  if (ACCOUNT_CF == 'true') { ?>
-  if (entry_cf.length < <?php echo ENTRY_CF_MIN_LENGTH; ?>) {
-    error_message = error_message + "<?php echo JS_CF; ?>";
-    error = 1;
-  }
-<?php  }
-  // P.IVA + CF - end
-?>
   if (customers_email_address == "" || customers_email_address.length < <?php echo ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_EMAIL_ADDRESS; ?>";
     error = 1;
@@ -786,62 +716,6 @@ function check_form() {
       </tr>
 <?php
     }
-
-if (ACCOUNT_VAT == 'true' || ACCOUNT_CF == 'true') {
-?>
-      <tr>
-        <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
-      </tr>
-      <tr>
-        <td class="formAreaTitle"><?php echo CATEGORY_FISCAL; ?></td>
-      </tr>
-<?php
-    if (ACCOUNT_VAT == 'true') {?>
-      <tr>
-        <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
-          <tr>
-            <td class="main"><?php echo ENTRY_VAT; ?></td>
-            <td class="main">
-<?php
-    if ($error == true) {
-      if ($entry_vat_error == true) {
-        echo zen_draw_input_field('entry_vat', $cInfo->entry_vat, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_vat', 50)) . '&nbsp;' . ENTRY_VAT_ERROR;
-      } else {
-        echo $cInfo->entry_vat . zen_draw_hidden_field('entry_vat');
-      }
-    } else {
-      echo zen_draw_input_field('entry_vat', $cInfo->entry_vat, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_vat', 50));
-    }
-?></td>
-          </tr>
-        </table></td>
-      </tr>
-<?php
-    }
-    if (ACCOUNT_CF == 'true') {?>
-      <tr>
-        <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
-          <tr>
-            <td class="main"><?php echo ENTRY_CF; ?></td>
-            <td class="main">
-<?php
-    if ($error == true) {
-      if ($entry_cf_error == true) {
-        echo zen_draw_input_field('entry_cf', $cInfo->entry_cf, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_cf', 50)) . '&nbsp;' . ENTRY_CF_ERROR;
-      } else {
-        echo $cInfo->entry_cf . zen_draw_hidden_field('entry_cf');
-      }
-    } else {
-      echo zen_draw_input_field('entry_cf', $cInfo->entry_cf, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_cf', 50));
-    }
-?></td>
-          </tr>
-        </table></td>
-      </tr>
-<?php
-    }
-    }
-
 ?>
       <tr>
         <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>

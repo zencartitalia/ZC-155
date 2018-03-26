@@ -7,11 +7,6 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version Id: italian.php 2016-07-29 Author: Paolo De Dionigi aka Spike00 Modified in v1.5.5
 */
-// FOLLOWING WERE moved to meta_tags.php
-//define('TITLE', 'Zen Cart!');
-//define('SITE_TAGLINE', 'The Art of E-commerce');
-//define('CUSTOM_KEYWORDS', 'ecommerce, open source, shop, online shopping');
-// END: moved to meta_tags.php
 
   define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . zen_href_link(FILENAME_DEFAULT) . '" target="_blank">' . STORE_NAME . '</a> - '.STORE_DATIFISCALI . ' Powered by <a href="http://www.zen-cart.it" target="_blank">Zen Cart</a>');
 
@@ -19,7 +14,7 @@
   $locales = array('it_IT', 'it_IT.UTF-8', 'it', 'Italian_Italy.1252');
   @setlocale(LC_TIME, $locales);
   define('DATE_FORMAT_SHORT', '%d.%m.%Y');  // this is used for strftime()
-  define('DATE_FORMAT_LONG', '%A %d %B, %Y'); // this is used for strftime()
+  define('DATE_FORMAT_LONG', '%d %B %Y'); // this is used for strftime()
   define('DATE_FORMAT', 'd/m/Y'); // this is used for date()
   define('DATE_TIME_FORMAT', DATE_FORMAT_SHORT . ' %H:%M:%S');
 
