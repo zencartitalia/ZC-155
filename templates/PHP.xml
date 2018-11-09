@@ -1,5 +1,5 @@
 <templateSet group="PHP">
-  <template name="debg" value="echo '&lt;pre style=&quot;font-size:12px&quot;&gt;';&#10;print_r($END$);&#10;echo '&lt;/pre&gt;';" description="debug" toReformat="true" toShortenFQNames="true">
+  <template name="debg" value="echo __FILE__ . ' ' . __LINE__;&#10;echo '&lt;pre style=&quot;font-size:12px&quot;&gt;';&#10;print_r($END$);&#10;echo '&lt;/pre&gt;';" description="debug" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="PHP Statement" value="true" />
     </context>
