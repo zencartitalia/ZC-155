@@ -22,4 +22,15 @@ define('ENTRY_CF_ERROR', 'Il codice fiscale deve contenere almeno ' . ENTRY_CF_M
 
 define('ENTRY_CF_TEXT', ''); // NON obbligatorio - inserire * per visualizzarlo come campo obbligatorio
 
-?>
+define('CATEGORY_FATTURAZIONE_ELETTRONICA', 'Informazioni per fattura elettronica');
+
+define('ENTRY_CODICE_UNIVOCO', 'Codice univoco (inserire 0000000 se non in possesso):');
+define('ENTRY_CODICE_UNIVOCO_ERROR', 'Il codice univoco è composto da ' . ENTRY_CODICE_UNIVOCOMIN_LENGTH . ' caratteri.');
+
+define('ENTRY_CODICE_UNIVOCO_TEXT', '*'); // NON obbligatorio - inserire * per visualizzarlo come campo obbligatorio
+
+define('ENTRY_PEC', 'PEC:');
+define('ENTRY_CF_ERROR', 'L\'indirizzo PEC deve contenere almeno ' . ENTRY_PEC_MIN_LENGTH . ' caratteri.');
+
+define('ENTRY_PEC_TEXT', ''); // NON obbligatorio - inserire * per visualizzarlo come campo obbligatorio
+

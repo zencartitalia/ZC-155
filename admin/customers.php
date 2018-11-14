@@ -154,7 +154,40 @@
           $entry_cf_error = false;
         }
   // P.IVA + CF - end
+          /* Fattura Elettronica */
+          $entry_codice_univoco = zen_db_prepare_input($_POST['entry_codice_univoco']);
+          $entry_pec = zen_db_prepare_input($_POST['entry_pec']);
 
+          if (ACCOUNT_CODICE_UNIVOCO == 'true') {
+              if (strlen($entry_codice_univoco) < ENTRY_CODICE_UNIVOCO_MIN_LENGTH) {
+                  $error = true;
+                  $entry_codice_univoco_error = true;
+              } else {
+                  $entry_codice_univoco_error = false;
+              }
+          }
+          else {
+              $entry_codice_univoco_error = false;
+          }
+
+          if (ACCOUNT_PEC == 'true') {
+              if (strlen($entry_pec) < ENTRY_PEC_MIN_LENGTH) {
+                  $error = true;
+                  $entry_pec_error = true;
+              } else {
+                  $entry_pec_error = false;
+              }
+          }
+          else {
+              $entry_pec_error = false;
+          }
+          if (!zen_validate_email($entry_pec)) {
+              $error = true;
+              $entry_pec_check_error = true;
+          } else {
+              $entry_pec_check_error = false;
+          }
+          /* Fattura Elettronica */
 
         $entry_state = zen_db_prepare_input($_POST['entry_state']);
         if (isset($_POST['entry_zone_id'])) $entry_zone_id = zen_db_prepare_input($_POST['entry_zone_id']);
@@ -316,7 +349,11 @@
 // P.IVA + CF - start
         if (ACCOUNT_VAT == 'true') $sql_data_array[] = array('fieldName'=>'entry_vat', 'value'=>$entry_vat, 'type'=>'stringIgnoreNull');
         if (ACCOUNT_CF == 'true') $sql_data_array[] = array('fieldName'=>'entry_cf', 'value'=>$entry_cf, 'type'=>'stringIgnoreNull');
-// P.IVA + CF - end 
+// P.IVA + CF - end
+          /* Fattura Elettronica */
+          if (ACCOUNT_CODICE_UNIVOCO == 'true') $sql_data_array[] = array('fieldName'=>'entry_codice_univoco', 'value'=>$entry_codice_univoco, 'type'=>'stringIgnoreNull');
+          if (ACCOUNT_PEC == 'true') $sql_data_array[] = array('fieldName'=>'entry_pec', 'value'=>$entry_pec, 'type'=>'stringIgnoreNull');
+          /* Fattura Elettronica */
         if (ACCOUNT_SUBURB == 'true') $sql_data_array[] = array('fieldName'=>'entry_suburb', 'value'=>$entry_suburb, 'type'=>'stringIgnoreNull');
 
         if (ACCOUNT_STATE == 'true') {
@@ -455,7 +492,7 @@
                                   on c.customers_default_address_id = a.address_book_id
                                   where a.customers_id = c.customers_id
                                   and c.customers_id = '" . (int)$customers_id . "'");
-*/
+
         $customers = $db->Execute("select c.customers_id, c.customers_gender, c.customers_firstname,
                                           c.customers_lastname, c.customers_dob, c.customers_email_address,
                                           a.entry_company, a.entry_vat, a.entry_cf, a.entry_street_address, a.entry_suburb,
@@ -468,7 +505,23 @@
                                   on c.customers_default_address_id = a.address_book_id
                                   where a.customers_id = c.customers_id
                                   and c.customers_id = '" . (int)$customers_id . "'");
+        */
 // P.IVA + CF - end
+            /* Fattura Elettronica */
+            $customers = $db->Execute("select c.customers_id, c.customers_gender, c.customers_firstname,
+                                          c.customers_lastname, c.customers_dob, c.customers_email_address,
+                                          a.entry_company, a.entry_vat, a.entry_cf, a.entry_codice_univoco, a.entry_pec,
+                                          a.entry_street_address, a.entry_suburb,
+                                          a.entry_postcode, a.entry_city, a.entry_state, a.entry_zone_id,
+                                          a.entry_country_id, c.customers_telephone, c.customers_fax,
+                                          c.customers_newsletter, c.customers_default_address_id,
+                                          c.customers_email_format, c.customers_group_pricing,
+                                          c.customers_authorization, c.customers_referral
+                                  from " . TABLE_CUSTOMERS . " c left join " . TABLE_ADDRESS_BOOK . " a
+                                  on c.customers_default_address_id = a.address_book_id
+                                  where a.customers_id = c.customers_id
+                                  and c.customers_id = '" . (int)$customers_id . "'");
+            /* Fattura Elettronica */
         $cInfo = new objectInfo($customers->fields);
     }
   }
@@ -498,6 +551,10 @@ function check_form() {
   if (ACCOUNT_VAT == 'true') echo 'var entry_vat = document.customers.entry_vat.value;' . "\n"; 
   if (ACCOUNT_CF == 'true') echo 'var entry_cf = document.customers.entry_cf.value;' . "\n"; 
   // P.IVA + CF - end
+    /* Fattura Elettronica */
+    if (ACCOUNT_CODICE_UNIVOCO == 'true') echo 'var entry_codice_univoco = document.customers.entry_codice_univoco.value;' . "\n";
+    if (ACCOUNT_PEC == 'true') echo 'var entry_pec = document.customers.entry_pec.value;' . "\n";
+    /* Fattura Elettronica */
 ?>
 <?php if (ACCOUNT_DOB == 'true') echo 'var customers_dob = document.customers.customers_dob.value;' . "\n"; ?>
   var customers_email_address = document.customers.customers_email_address.value;
@@ -546,6 +603,21 @@ function check_form() {
   }
 <?php  }
   // P.IVA + CF - end
+    /* Fattura Elettronica */
+    if (ACCOUNT_CODICE_UNIVOCO == 'true') { ?>
+    if (entry_codice_univoco.length < <?php echo ENTRY_CODICE_UNIVOCO_MIN_LENGTH; ?>) {
+        error_message = error_message + "<?php echo JS_CODICE_UNIVOCO; ?>";
+        error = 1;
+    }
+    <?php }
+
+    if (ACCOUNT_PEC == 'true') { ?>
+    if (entry_cf.length < <?php echo ENTRY_PEC_MIN_LENGTH; ?>) {
+        error_message = error_message + "<?php echo JS_PEC; ?>";
+        error = 1;
+    }
+    <?php  }
+    /* Fattura Elettronica */
 ?>
   if (customers_email_address == "" || customers_email_address.length < <?php echo ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>) {
     error_message = error_message + "<?php echo JS_EMAIL_ADDRESS; ?>";
@@ -786,7 +858,7 @@ function check_form() {
       </tr>
 <?php
     }
-
+// P.IVA + CF - start
 if (ACCOUNT_VAT == 'true' || ACCOUNT_CF == 'true') {
 ?>
       <tr>
@@ -841,6 +913,63 @@ if (ACCOUNT_VAT == 'true' || ACCOUNT_CF == 'true') {
 <?php
     }
     }
+// P.IVA + CF - end
+      /* Fattura Elettronica */
+      if (ACCOUNT_CODICE_UNIVOCO == 'true' || ACCOUNT_PEC == 'true') {
+          ?>
+          <tr>
+              <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+          </tr>
+          <tr>
+              <td class="formAreaTitle"><?php echo CATEGORY_FATTURAZIONE_ELETTRONICA; ?></td>
+          </tr>
+          <?php
+          if (ACCOUNT_CODICE_UNIVOCO == 'true') {?>
+              <tr>
+                  <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
+                          <tr>
+                              <td class="main"><?php echo ENTRY_CODICE_UNIVOCO; ?></td>
+                              <td class="main">
+                                  <?php
+                                  if ($error == true) {
+                                      if ($entry_codice_univoco_error == true) {
+                                          echo zen_draw_input_field('entry_codice_univoco', $cInfo->entry_codice_univoco, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_codice_univoco', 50)) . '&nbsp;' . ENTRY_CODICE_UNIVOCO_ERROR;
+                                      } else {
+                                          echo $cInfo->entry_codice_univoco . zen_draw_hidden_field('entry_codice_univoco');
+                                      }
+                                  } else {
+                                      echo zen_draw_input_field('entry_codice_univoco', $cInfo->entry_codice_univoco, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_codice_univoco', 50));
+                                  }
+                                  ?></td>
+                          </tr>
+                      </table></td>
+              </tr>
+              <?php
+          }
+          if (ACCOUNT_PEC == 'true') {?>
+              <tr>
+                  <td class="formArea"><table border="0" cellspacing="2" cellpadding="2">
+                          <tr>
+                              <td class="main"><?php echo ENTRY_PEC; ?></td>
+                              <td class="main">
+                                  <?php
+                                  if ($error == true) {
+                                      if ($entry_pec_error == true) {
+                                          echo zen_draw_input_field('entry_pec', $cInfo->entry_pec, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_pec', 50)) . '&nbsp;' . ENTRY_PEC_ERROR;
+                                      } else {
+                                          echo $cInfo->entry_pec . zen_draw_hidden_field('entry_pec');
+                                      }
+                                  } else {
+                                      echo zen_draw_input_field('entry_pec', $cInfo->entry_pec, zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_pec', 50));
+                                  }
+                                  ?></td>
+                          </tr>
+                      </table></td>
+              </tr>
+              <?php
+          }
+      }
+      /* Fattura Elettronica */
 
 ?>
       <tr>

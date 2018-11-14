@@ -62,6 +62,20 @@
 <?php
   }
   // P.IVA + CF - start
+/* Fattura Elettronica */
+if (ACCOUNT_CODICE_UNIVOCO == 'true') {?>
+    <label class="inputLabel" for="codice_univoco"><?php echo ENTRY_CODICE_UNIVOCO; ?></label>
+    <?php echo zen_draw_input_field('codice_univoco', $entry->fields['entry_codice_univoco'], zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_codice_univoco', '7') . ' id="codice_univoco" placeholder="' . ENTRY_CODICE_UNIVOCO_TEXT . '"' . (ACCOUNT_CODICE_UNIVOCO == 'true' && (int)ENTRY_CODICE_UNIVOCO_MIN_LENGTH != 0 ? ' required' : '')); ?>
+    <br class="clearBoth" />
+    <?php
+}
+if (ACCOUNT_PEC == 'true') {?>
+    <label class="inputLabel" for="pec"><?php echo ENTRY_PEC; ?></label>
+    <?php echo zen_draw_input_field('pec', $entry->fields['entry_pec'], zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_pec', '40') . ' id="pec" placeholder="' . ENTRY_PEC_TEXT . '"' . (ACCOUNT_PEC == 'true' && (int)ENTRY_PEC_MIN_LENGTH != 0 ? ' required' : '')); ?>
+    <br class="clearBoth" />
+    <?php
+}
+/* Fattura Elettronica */
 ?>
 
 <label class="inputLabel" for="street-address"><?php echo ENTRY_STREET_ADDRESS; ?></label>

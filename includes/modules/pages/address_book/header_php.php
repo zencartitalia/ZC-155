@@ -29,7 +29,7 @@ $addresses_query = "SELECT address_book_id, entry_firstname as firstname, entry_
                     FROM   " . TABLE_ADDRESS_BOOK . "
                     WHERE  customers_id = :customersID
                     ORDER BY firstname, lastname";
-*/
+
 $addresses_query = "SELECT address_book_id, entry_firstname as firstname, entry_lastname as lastname,
                            entry_company as company, entry_vat as vat, entry_cf as fiscalcode, entry_street_address as street_address,
                            entry_suburb as suburb, entry_city as city, entry_postcode as postcode,
@@ -37,8 +37,18 @@ $addresses_query = "SELECT address_book_id, entry_firstname as firstname, entry_
                     FROM   " . TABLE_ADDRESS_BOOK . "
                     WHERE  customers_id = :customersID
                     ORDER BY firstname, lastname";
+*/
   // P.IVA + CF - end
-
+/* Fattura Elettronica */
+$addresses_query = "SELECT address_book_id, entry_firstname as firstname, entry_lastname as lastname,
+                           entry_company as company, entry_vat as vat, entry_cf as fiscalcode, 
+                           entry_codice_univoco as codice_univoco, entry_pec as pec, entry_street_address as street_address,
+                           entry_suburb as suburb, entry_city as city, entry_postcode as postcode,
+                           entry_state as state, entry_zone_id as zone_id, entry_country_id as country_id
+                    FROM   " . TABLE_ADDRESS_BOOK . "
+                    WHERE  customers_id = :customersID
+                    ORDER BY firstname, lastname";
+/* Fattura Elettronica */
 $addresses_query = $db->bindVars($addresses_query, ':customersID', $_SESSION['customer_id'], 'integer');
 $addresses = $db->Execute($addresses_query);
 

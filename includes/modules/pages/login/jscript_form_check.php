@@ -145,7 +145,12 @@ function check_form(form_name) {
 <?php if (ACCOUNT_VAT == 'true' && (int)ENTRY_VAT_MIN_LENGTH != 0) echo '  check_input("vat", ' . (int)ENTRY_VAT_MIN_LENGTH . ', "' . ENTRY_VAT_ERROR . '");' . "\n"; ?>
 <?php if (ACCOUNT_CF == 'true' && (int)ENTRY_CF_MIN_LENGTH != 0) echo '  check_input("fiscalcode", ' . (int)ENTRY_CF_MIN_LENGTH . ', "' . ENTRY_CF_ERROR . '");' . "\n"; ?>
   // P.IVA + CF - end
-
+/* Fattura Elettronica */
+    <?php if (ACCOUNT_CODICE_UNIVOCO == 'true' && (int)ENTRY_CODICE_UNIVOCO_MIN_LENGTH != 0) echo '  check_input("codice_univoco", ' . (int)ENTRY_CODICE_UNIVOCO_MIN_LENGTH . ', "' . ENTRY_CODICE_UNIVOCO_ERROR . '");' . "\n"; ?>
+    <?php if (ACCOUNT_PEC == 'true' && (int)ENTRY_PEC_MIN_LENGTH > 0) { ?>
+	check_input("pec", <?php echo (int)ENTRY_PEC_MIN_LENGTH; ?>, "<?php echo ENTRY_PEC_ERROR; ?>");
+    <?php } ?>
+/* Fattura Elettronica */
 <?php if ((int)ENTRY_EMAIL_ADDRESS_MIN_LENGTH > 0) { ?>
   check_input("email_address", <?php echo (int)ENTRY_EMAIL_ADDRESS_MIN_LENGTH; ?>, "<?php echo ENTRY_EMAIL_ADDRESS_ERROR; ?>");
 <?php } ?>

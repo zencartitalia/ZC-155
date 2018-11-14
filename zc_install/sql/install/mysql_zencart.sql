@@ -3267,6 +3267,19 @@ INSERT INTO configuration (configuration_title, configuration_key, configuration
 INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) VALUES ('Codice Fiscale', 'ENTRY_CF_MIN_LENGTH', '0', 'Lunghezza minima Codice Fiscale', '2', '6', now());
 INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES ('Codice Fiscale', 'ACCOUNT_CF', 'true', 'Mostra il campo Codice Fiscale durante la creazione di un account e nelle informazioni account', '5', '3', now(), NULL, 'zen_cfg_select_option(array(''true'', ''false''), ');
 
+#
+# Modifiche per fattura elettronica
+#
+
+ALTER TABLE address_book ADD entry_codice_univoco VARCHAR(7) NULL ,
+ADD entry_pec VARCHAR(96) NULL ;
+ALTER TABLE orders ADD billing_codice_univoco VARCHAR(7) NULL AFTER billing_cf ,
+ADD billing_pec VARCHAR(96) NULL AFTER billing_codice_univoco ;
+INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) VALUES (''Codice univoco'', ''ENTRY_CODICE_UNIVOCO_MIN_LENGTH'', ''0'', ''Lunghezza minima Codice univoco (deve essere lungo 7 caratteri)'', ''2'', ''6'', now());
+INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (''Codice univoco'', ''ACCOUNT_CODICE_UNIVOCO'', ''true'', ''Mostra il campo Codice Univoco durante la creazione di un account e nelle informazioni account'', ''5'', ''3'', now(), NULL, ''zen_cfg_select_option(array(''''true'''', ''''false''''), '');
+INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) VALUES (''PEC'', ''ENTRY_PEC_MIN_LENGTH'', ''0'', ''Lunghezza minima Email PEC'', ''2'', ''6'', now());
+INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (''PEC'', ''ACCOUNT_PEC'', ''true'', ''Mostra il campo PEC durante la creazione di un account e nelle informazioni account'', ''5'', ''3'', now(), NULL, ''zen_cfg_select_option(array(''''true'''', ''''false''''), '');
+
 
 #
 # Dumping data for table project_version

@@ -40,7 +40,7 @@
                                     order_total, order_tax, ip_address
                              from " . TABLE_ORDERS . "
                              where orders_id = '" . (int)$order_id . "'");
-*/
+
       $order = $db->Execute("select cc_cvv, customers_name, customers_company, customers_street_address,
                                     customers_suburb, customers_city, customers_postcode, customers_id,
                                     customers_state, customers_country, customers_telephone,
@@ -57,7 +57,26 @@
                                     order_total, order_tax, ip_address
                              from " . TABLE_ORDERS . "
                              where orders_id = '" . (int)$order_id . "'");
+      */
 // P.IVA + CF - end
+        /* Fattura Elettronica */
+        $order = $db->Execute("select cc_cvv, customers_name, customers_company, customers_street_address,
+                                    customers_suburb, customers_city, customers_postcode, customers_id,
+                                    customers_state, customers_country, customers_telephone,
+                                    customers_email_address, customers_address_format_id, delivery_name,
+                                    delivery_company, delivery_street_address, delivery_suburb,
+                                    delivery_city, delivery_postcode, delivery_state, delivery_country,
+                                    delivery_address_format_id, billing_name, billing_company,
+                                    billing_vat, billing_cf, billing_codice_univoco, billing_pec,
+                                    billing_street_address, billing_suburb, billing_city, billing_postcode,
+                                    billing_state, billing_country, billing_address_format_id,
+                                    coupon_code, payment_method, payment_module_code, shipping_method, shipping_module_code,
+                                    cc_type, cc_owner, cc_number, cc_expires, currency,
+                                    currency_value, date_purchased, orders_status, last_modified,
+                                    order_total, order_tax, ip_address
+                             from " . TABLE_ORDERS . "
+                             where orders_id = '" . (int)$order_id . "'");
+        /* Fattura Elettronica */
       $totals = $db->Execute("select title, text, class, value
                               from " . TABLE_ORDERS_TOTAL . "
                               where orders_id = '" . (int)$order_id . "'
@@ -131,7 +150,7 @@
                              'state' => $order->fields['billing_state'],
                              'country' => $order->fields['billing_country'],
                              'format_id' => $order->fields['billing_address_format_id']);
-*/
+
      $this->billing = array('name' => $order->fields['billing_name'],
                              'company' => $order->fields['billing_company'],
 							 'vat' => $order->fields['billing_vat'],
@@ -143,7 +162,23 @@
                              'state' => $order->fields['billing_state'],
                              'country' => $order->fields['billing_country'],
                              'format_id' => $order->fields['billing_address_format_id']);
+     */
 // P.IVA + CF - end
+        /* Fattura Elettronica */
+        $this->billing = array('name' => $order->fields['billing_name'],
+            'company' => $order->fields['billing_company'],
+            'vat' => $order->fields['billing_vat'],
+            'fiscalcode' => $order->fields['billing_cf'],
+            'codice_univoco' => $order->fields['billing_codice_univoco'],
+            'pec' => $order->fields['billing_pec'],
+            'street_address' => $order->fields['billing_street_address'],
+            'suburb' => $order->fields['billing_suburb'],
+            'city' => $order->fields['billing_city'],
+            'postcode' => $order->fields['billing_postcode'],
+            'state' => $order->fields['billing_state'],
+            'country' => $order->fields['billing_country'],
+            'format_id' => $order->fields['billing_address_format_id']);
+        /* Fattura Elettronica */
       $index = 0;
       $orders_products = $db->Execute("select orders_products_id, products_id, products_name, products_model,
                                               products_price, products_tax, products_quantity,

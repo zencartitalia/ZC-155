@@ -45,6 +45,10 @@
     $vat = zen_output_string_protected($address['vat']);
     $fiscalcode = zen_output_string_protected($address['fiscalcode']);
 // P.IVA + CF - end
+      /* Fattura Elettronica */
+      $codice_univoco = zen_output_string_protected($address['codice_univoco']);
+      $pec = zen_output_string_protected($address['pec']);
+      /* Fattura Elettronica */
     if (isset($address['firstname']) && zen_not_null($address['firstname'])) {
       $firstname = zen_output_string_protected($address['firstname']);
       $lastname = zen_output_string_protected($address['lastname']);
@@ -121,7 +125,15 @@
       $address_out = "P.IVA: " . $vat . $cr . $address_out;
     }
   // P.IVA + CF - end
+      /* Fattura Elettronica */
+      if ( (ACCOUNT_PEC == 'true') && (zen_not_null($pec)) ) {
+          $address_out = "PEC: " . $pec . $cr . $address_out;
+      }
 
+      if ( (ACCOUNT_CODICE_UNIVOCO == 'true') && (zen_not_null($codice_univoco)) ) {
+          $address_out = "Codice univoco: " . $codice_univoco . $cr . $address_out;
+      }
+      /* Fattura Elettronica */
     if ( (ACCOUNT_COMPANY == 'true') && (zen_not_null($company)) ) {
       $address_out = $company . $cr . $address_out;
     }

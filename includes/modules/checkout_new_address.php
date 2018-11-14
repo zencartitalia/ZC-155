@@ -36,7 +36,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'submit')) {
   if (ACCOUNT_VAT == 'true') $vat = zen_db_prepare_input($_POST['vat']);
   if (ACCOUNT_CF == 'true') $fiscalcode = zen_db_prepare_input($_POST['fiscalcode']);
   // P.IVA + CF - end
-  
+      /* Fattura Elettronica */
+      if (ACCOUNT_CODICE_UNIVOCO == 'true') $codice_univoco = zen_db_prepare_input($_POST['codice_univoco']);
+      if (ACCOUNT_PEC == 'true') $pec = zen_db_prepare_input($_POST['pec']);
+      /* Fattura Elettronica */
     $firstname = zen_db_prepare_input($_POST['firstname']);
     $lastname = zen_db_prepare_input($_POST['lastname']);
     $street_address = zen_db_prepare_input($_POST['street_address']);
@@ -156,6 +159,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'submit')) {
       if (ACCOUNT_VAT == 'true') $sql_data_array[] = array('fieldName'=>'entry_vat', 'value'=>$vat, 'type'=>'stringIgnoreNull');
       if (ACCOUNT_CF == 'true') $sql_data_array[] = array('fieldName'=>'entry_cf', 'value'=>$fiscalcode, 'type'=>'stringIgnoreNull');
   // P.IVA + CF - end
+        /* Fattura Elettronica */
+        if (ACCOUNT_CODICE_UNIVOCO == 'true') $sql_data_array[] = array('fieldName'=>'entry_codice_univoco', 'value'=>$codice_univoco, 'type'=>'stringIgnoreNull');
+        if (ACCOUNT_PEC == 'true') $sql_data_array[] = array('fieldName'=>'entry_pec', 'value'=>$pec, 'type'=>'stringIgnoreNull');
+        /* Fattura Elettronica */
       if (ACCOUNT_SUBURB == 'true') $sql_data_array[] = array('fieldName'=>'entry_suburb', 'value'=>$suburb, 'type'=>'stringIgnoreNull');
       if (ACCOUNT_STATE == 'true') {
         if ($zone_id > 0) {
