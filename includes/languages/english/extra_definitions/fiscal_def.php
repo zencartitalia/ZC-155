@@ -10,15 +10,15 @@
  * @version $Id: fiscal_def.php 2007-02-07 22:49:50Z spike00 $
  */
 
-define('CATEGORY_FISCAL', 'Informazioni fiscali');
+define('CATEGORY_FISCAL', 'Fiscal data');
 
-define('ENTRY_VAT', 'Partita IVA:');
-define('ENTRY_VAT_ERROR', 'La partita IVA deve contenere almeno ' . ENTRY_VAT_MIN_LENGTH . ' caratteri.');
+define('ENTRY_VAT', 'VAT Code:');
+define('ENTRY_VAT_ERROR', 'The field \'VAT Code\' requires at least ' . ENTRY_VAT_MIN_LENGTH . ' characters.');
 
 define('ENTRY_VAT_TEXT', ''); // NON obbligatorio - inserire * per visualizzarlo come campo obbligatorio
 
-define('ENTRY_CF', 'Codice fiscale:');
-define('ENTRY_CF_ERROR', 'Il codice fiscale deve contenere almeno ' . ENTRY_CF_MIN_LENGTH . ' caratteri.');
+define('ENTRY_CF', 'TAX Code:');
+define('ENTRY_CF_ERROR', 'The field \'TAX Code\' requires at least ' . ENTRY_CF_MIN_LENGTH . ' characters..');
 
 define('ENTRY_CF_TEXT', ''); // NON obbligatorio - inserire * per visualizzarlo come campo obbligatorio
 

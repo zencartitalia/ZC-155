@@ -12,4 +12,6 @@ define('JS_CF', '* Nel campo \'Codice Fiscale\' vanno inseriti almeno ' . ENTRY_
 define('CATEGORY_FISCAL', 'Informazioni fiscali');
 define('ENTRY_VAT', 'Partita IVA');
 define('ENTRY_CF', 'Codice Fiscale');
-?>
+define('CATEGORY_FATTURAZIONE_ELETTRONICA', 'Fatturazione Elettronica');
+define('ENTRY_CODICE_UNIVOCO', 'Codice univoco ');
+define('ENTRY_PEC', 'PEC');
