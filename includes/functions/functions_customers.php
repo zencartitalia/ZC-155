@@ -38,7 +38,8 @@
                              where address_format_id = '" . (int)$address_format_id . "'";
 
     $address_format = $db->Execute($address_format_query);
-// P.IVA + CF - start 
+// P.IVA + CF - start
+    $company = zen_output_string_protected($address['company']);
     $vat = zen_output_string_protected($address['vat']);
     $fiscalcode = zen_output_string_protected($address['fiscalcode']);
 // P.IVA + CF - end
@@ -115,6 +116,14 @@
 
 // P.IVA + CF - start  
     if(zen_not_null($company)){
+        /* Fattura Elettronica */
+        if ( (ACCOUNT_CODICE_UNIVOCO == 'true') && (zen_not_null($codice_univoco)) ) {
+            $address_out = ENTRY_CODICE_UNIVOCO . " " . $codice_univoco . $cr . $address_out;
+        }
+        if ( (ACCOUNT_PEC == 'true') && (zen_not_null($pec)) ) {
+            $address_out = ENTRY_PEC. " " . $pec . $cr . $address_out;
+        }
+        /* Fattura elettronica */
       if ( (ACCOUNT_CF == 'true') && (zen_not_null($fiscalcode)) ) {
         $address_out = ENTRY_CF . " " . $fiscalcode . $cr . $address_out;
       }
@@ -129,16 +138,17 @@
       if ( (ACCOUNT_CF == 'true') && (zen_not_null($fiscalcode)) ) {
         $address_out = $address_out . $cr . ENTRY_CF . " " . $fiscalcode;
       }
+        /* Fattura Elettronica */
+        if ( (ACCOUNT_CODICE_UNIVOCO == 'true') && (zen_not_null($codice_univoco)) ) {
+            $address_out = $address_out . $cr . ENTRY_CODICE_UNIVOCO . " " . $codice_univoco;
+        }
+        if ( (ACCOUNT_PEC == 'true') && (zen_not_null($pec)) ) {
+            $address_out = $address_out . $cr . ENTRY_PEC. " " . $pec;
+        }
+        /* Fattura elettronica */
     }
 // P.IVA + CF - end
-      /* Fattura Elettronica */
-      if ( (ACCOUNT_CODICE_UNIVOCO == 'true') && (zen_not_null($codice_univoco)) ) {
-          $address_out = $address_out . $cr . ENTRY_CODICE_UNIVOCO . " " . $codice_univoco;
-      }
-      if ( (ACCOUNT_PEC == 'true') && (zen_not_null($pec)) ) {
-          $address_out = $address_out . $cr . ENTRY_PEC. " " . $pec;
-      }
-      /* Fattura elettronica */
+
     return $address_out;
   }
 
@@ -147,17 +157,20 @@
 // TABLES: customers, address_book
   function zen_address_label($customers_id, $address_id = 1, $html = false, $boln = '', $eoln = "\n") {
     global $db;
+      // P.IVA + CF - start
+      /* Fattura elettronica */
     $address_query = "select entry_firstname as firstname, entry_lastname as lastname,
                              entry_company as company, entry_street_address as street_address,
                              entry_suburb as suburb, entry_city as city, entry_postcode as postcode,
                              entry_state as state, entry_zone_id as zone_id,
-                             entry_country_id as country_id, entry_vat as vat, entry_cf as fiscalcode
+                             entry_country_id as country_id, entry_vat as vat, entry_cf as fiscalcode,
+                             entry_codice_univoco as codice_univoco, entry_pec as pec
                       from " . TABLE_ADDRESS_BOOK . "
                       where customers_id = '" . (int)$customers_id . "'
                       and address_book_id = '" . (int)$address_id . "'";
-
+      // P.IVA + CF - end
+      /* Fattura elettronica */
     $address = $db->Execute($address_query);
-
     $format_id = zen_get_address_format_id($address->fields['country_id']);
     return zen_address_format($format_id, $address->fields, $html, $boln, $eoln);
   }
