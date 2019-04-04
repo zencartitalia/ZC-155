@@ -1,0 +1,7 @@
+<application>
+  <component name="TaskStorage">
+    <tasks>
+      <task priority="Normal" completed="false" estimated="300" created="1554374130672" actual="0" highlighted="false" highlightingtype="Red" title="creazione array id customers" description="Da $c devo ricavare un array di id nella forma [&amp;#39;id1&amp;#39;,&amp;#39;id2&amp;#39;,&amp;#39;id3&amp;#39;] da dare in pasto a Customer::Info()" />
+    </tasks>
+  </component>
+</application>
