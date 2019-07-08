@@ -9,4 +9,9 @@
       <option name="PHP Statement" value="true" />
     </context>
   </template>
+  <template name="debgi" value="if($_SERVER['REMOTE_ADDR']=='89.97.20.202') {&#10;    echo __FILE__ . ' ' . __LINE__;&#10;    echo '&lt;pre style=&quot;font-size:12px&quot;&gt;';&#10;    echo '&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;DEBUG INTERNO&lt;/span&gt;&lt;br&gt;';&#10;    print_r($END$);&#10;    echo '&lt;/pre&gt;';&#10;}" description="debug visibile solo dal nostro ip" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Statement" value="true" />
+    </context>
+  </template>
 </templateSet>
