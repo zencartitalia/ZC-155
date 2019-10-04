@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="amazonpay" type="PLAIN_TEXT" />
       <mapping pattern="eseguiscriptzencart_listascript" type="PLAIN_TEXT" />
+      <mapping ext="lang" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
